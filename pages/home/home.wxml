@@ -1,2 +1,39 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/helloworld1.wxml</text>
+<view>
+    <view>
+        <view>
+            <input class="weui-input"  placeholder="搜索"/>
+        </view>
+        <view>
+            <image src="../../static/icons/添加-线性.png"></image>
+        </view>
+    </view>
+    <view>
+        <view data-tab="guanzhu" bindtap="ontab">关注</view>
+        <view data-tab="resou" bindtap="ontab">热搜</view>
+        <view data-tab="fenqu" bindtap="ontab">分区</view>
+        <view data-tab="dashen" bindtap="ontab">大神榜</view>
+    </view>
+
+
+    <view>
+        <view wx:if="{{tab.guanzhu}}">
+            关注内容 czh
+        </view>
+        <view wx:if="{{tab.resou}}">
+            热搜内容 艾震文
+        </view>
+        <view wx:if="{{tab.fenqu}}">
+            分区内容  zlr
+            <view>
+                十个分类
+            </view>
+            <view>
+                
+            </view>
+        </view>
+        <view wx:if="{{tab.dashen}}">
+            大神榜内容 HYJ
+        </view>
+    </view>
+</view>
