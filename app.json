@@ -6,7 +6,8 @@
         "pages/home/home",
         "pages/help/help",
         "pages/user/user",
-        "pages/login/login"
+        "pages/login/login",
+        "pages/rank/rank"
     ],
     "window": {
         "backgroundTextStyle": "light",
