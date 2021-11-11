@@ -14,6 +14,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    isLogin:false,
+    unionid:null,
+    openid:null,
   }
 })
