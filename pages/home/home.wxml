@@ -1,18 +1,18 @@
 <!--pages/home/home.wxml-->
 <view>
-    <view>
+    <view class ="head"  style="height: 99rpx; display: flex; ">
         <view>
-            <input class="weui-input"  placeholder="搜索"/>
+            <input style=" width: 507rpx; height: 94rpx; "  placeholder="搜索"/>
         </view>
         <view>
-            <image src="../../static/icons/添加-线性.png"></image>
+            <image src="../../static/icons/添加-线性.png" style="width: 94rpx; height: 92rpx;"></image>
         </view>
     </view>
-    <view>
-        <view data-tab="guanzhu" bindtap="ontab">关注</view>
-        <view data-tab="resou" bindtap="ontab">热搜</view>
-        <view data-tab="fenqu" bindtap="ontab">分区</view>
-        <view data-tab="dashen" bindtap="ontab">大神榜</view>
+    <view class="container">
+        <view data-tab="guanzhu" bindtap="ontab" style=" width: 98rpx; height: 52rpx;">关注</view>
+        <view data-tab="resou" bindtap="ontab" style="width: 98rpx; height: 52rpx;">热搜</view>
+        <view data-tab="fenqu" bindtap="ontab" style="width: 98rpx; height: 52rpx;">分区</view>
+        <view data-tab="dashen" bindtap="ontab" style="width: 98rpx; height: 52rpx;">大神榜</view>
     </view>
 
 
