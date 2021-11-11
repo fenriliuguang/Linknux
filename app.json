@@ -1,5 +1,5 @@
 {
-    "entryPagePath": "pages/login/login",
+    "entryPagePath": "pages/home/home",
     "pages": [
         "pages/index/index",
         "pages/logs/logs",
@@ -22,24 +22,25 @@
         "borderStyle": "white",
         "list": [
             {
-                "selectedIconPath": "",
-                "iconPath": "",
+                "selectedIconPath": "./static/icons/首页.png",
+                "iconPath": "./static/icons/首页.png",
                 "pagePath": "pages/home/home",
                 "text": "首页"
             },
             {
-                "selectedIconPath": "",
-                "iconPath": "",
+                "selectedIconPath": "./static/icons/灯泡.png",
+                "iconPath": "./static/icons/灯泡.png",
                 "pagePath": "pages/help/help",
-                "text": ""
+                "text": "帮助"
             },
             {
-                "selectedIconPath": "",
-                "iconPath": "",
+                "selectedIconPath": "./static/icons/我的-线性-4.png",
+                "iconPath": "./static/icons/我的-线性-4.png",
                 "pagePath": "pages/user/user",
-                "text": ""
+                "text": "用户"
             }
         ],
-        "position": "bottom"
+        "position": "bottom",
+        "selectedColor": "#00CD00"
     }
 }

@@ -5,7 +5,27 @@ Page({
      * 页面的初始数据
      */
     data: {
+        tab:{
+            guanzhu:true,
+            resou:false,
+            fenqu:false,
+            dashen:false
+        }
+    },
 
+    ontab: function(e){
+        var tab;
+        tab = this.data.tab;
+        for (let key in this.data.tab){
+            if (key === e.currentTarget.dataset.tab){
+                tab[key] = true;
+            }else{
+                tab[key] = false;
+            }
+        }
+        this.setData({
+            tab:tab
+        })
     },
 
     /**
