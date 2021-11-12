@@ -1,1 +1,22 @@
 /* pages/home/home.wxss */
+      
+.fenqu_box {
+    background-color: white;
+    display: flex;
+  }
+  
+.fenqu_box-item {
+    width: 142rpx;
+    height: 142rpx;
+    line-height: 245rpx;
+    vertical-align: middle;
+    background-color: white;
+    margin: 5rpx;
+    font-size: 20rpx;
+    color: black;
+    text-align: center;
+  }
+  .fenqu_box-1{
+    flex-direction: row;
+    flex-wrap: wrap;
+  }

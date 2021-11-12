@@ -10,8 +10,31 @@ Page({
             resou:false,
             fenqu:false,
             dashen:false
-        }
+        },
+        fenqu_page:[
+            {
+                id:0,
+                name:"页面1"
+            },
+            {
+                id:1,
+                name:"页面2"
+            },
+            {
+                id:2,
+                name:"页面3"
+            },
+            {
+                id:3,
+                name:"页面4"
+            },
+            {
+                id:4,
+                name:"页面5"
+            },
+        ],
     },
+        
 
     ontab: function(e){
         var tab;

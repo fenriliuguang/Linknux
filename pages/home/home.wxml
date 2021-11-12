@@ -27,9 +27,23 @@
             分区内容  zlr
             <view>
                 十个分类
+                <view class="fenqu_box fenqu_box-1">
+                    <view class="fenqu_box-item">Ubuntu</view>
+                    <view class="fenqu_box-item">Mint</view>
+                    <view class="fenqu_box-item">Kali</view>
+                    <view class="fenqu_box-item">MX Linux</view>
+                    <view class="fenqu_box-item">Pop!_OS</view>
+                    <view class="fenqu_box-item">Solus</view>
+                    <view class="fenqu_box-item">Manjaro</view>
+                    <view class="fenqu_box-item">elementary OS</view>
+                    <view class="fenqu_box-item">Tali</view>
+                    <view class="fenqu_box-item">查看更多</view>
+                </view>
             </view>
             <view>
-                
+                <view wx:for="{{ fenqu_page}}" wx:for-item="item">
+                    {{item.name}}
+                </view>
             </view>
         </view>
         <view wx:if="{{tab.dashen}}">
