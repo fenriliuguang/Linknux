@@ -6,7 +6,11 @@
         "pages/home/home",
         "pages/help/help",
         "pages/user/user",
-        "pages/login/login"
+        "pages/login/login",
+        "pages/user/favorites/favorites",
+        "pages/user/fans/fans",
+        "pages/user/history/history",
+        "pages/user/contribution/contribution"
     ],
     "window": {
         "backgroundTextStyle": "light",
