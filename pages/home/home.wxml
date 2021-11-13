@@ -1,14 +1,14 @@
 <!--pages/home/home.wxml-->
-<view>
-    <view>
-        <view>
+<view class="homeContainer">
+    <view class="searchArea">
+        <view class="searchBorder">
             <input class="weui-input"  placeholder="搜索"/>
         </view>
-        <view>
-            <image src="../../static/icons/添加-线性.png"></image>
+        <view class="addMore">
+            <image class="addImg" src="../../static/icons/添加-线性.png"></image>
         </view>
     </view>
-    <view>
+    <view class="ItemArea">
         <view data-tab="guanzhu" bindtap="ontab">关注</view>
         <view data-tab="resou" bindtap="ontab">热搜</view>
         <view data-tab="fenqu" bindtap="ontab">分区</view>
@@ -32,8 +32,175 @@
                 
             </view>
         </view>
-        <view wx:if="{{tab.dashen}}">
-            大神榜内容 HYJ
+        <!-- 大神排行榜 -->
+        <view class="rankArea" wx:if="{{tab.dashen}}">
+            <!-- 总榜和月榜 -->
+            <view class="rankType">
+                <view class="totalRank">总榜</view>
+                <view class="monthRank">月榜</view>
+            </view>
+            <!-- 前三名显示区域 -->
+            <view class="topThree">
+                <view class="numberTwo">
+                    <image class="crownSecond" src="../../static/icons/已收藏.png"></image>
+                    <image class="avatarImg" src="../../static/icons/我的-线性-4.png"></image>
+                    <text class="name">用户二</text>
+                    <view class="contribution">
+                        <image class="medal" src="../../static/icons/眼睛.png"></image>
+                        <text class="record">88888</text>
+                    </view>
+                </view>
+                <view class="numberOne">
+                    <image class="crownFirst" src="../../static/icons/已收藏.png"></image>
+                    <image class="avatarImg" src="../../static/icons/我的-线性-4.png"></image>
+                    <text class="name">用户一</text>
+                    <view class="contribution">
+                        <image class="medal" src="../../static/icons/眼睛.png"></image>
+                        <text class="record">99999</text>
+                    </view>
+                </view>
+                <view class="numberThree">
+                    <image class="crownThird" src="../../static/icons/已收藏.png"></image>
+                    <image class="avatarImg" src="../../static/icons/我的-线性-4.png"></image>
+                    <text class="name">用户三</text>
+                    <view class="contribution">
+                        <image class="medal" src="../../static/icons/眼睛.png"></image>
+                        <text class="record">77777</text>
+                    </view>
+                </view>
+            </view>
+            <!-- 我的贡献区域 -->
+            <view class="myContainer">
+                <view class="myContribution">我的贡献</view>
+                <image class="myAvatar" src="../../static/icons/我的-线性-4.png"></image>
+                <text class="name">唐僧</text>
+                <text class="sum">累计贡献点数:</text>
+                <text class="number">1900</text>
+                <image class="rankFlag" src="../../static/icons/已收藏.png"></image>
+                <text class="myRank">第 1,999 名</text>
+            </view>
+            <!-- 其它在榜人员区域 -->
+            <view class="otherRankContainer">
+                <!-- 头部信息区域 -->
+                <view class="header">
+                    <text>用户昵称</text>
+                    <text>累计贡献值</text>
+                    <text>排行</text>
+                </view>
+                <!-- 在榜人员具体信息区域 -->
+                <scroll-view class="scrollContainer" scroll-y="true">
+                    <view class="memberItem">
+                        <text class="name">吕小布</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                    <view class="memberItem">
+                        <text class="name">用户三</text>
+                        <text class="number">180000</text>
+                        <text class="rank">11111111</text>
+                    </view>
+                </scroll-view>
+            </view>
         </view>
     </view>
 </view>

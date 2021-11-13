@@ -6,10 +6,10 @@ Page({
      */
     data: {
         tab:{
-            guanzhu:true,
+            guanzhu:false,
             resou:false,
             fenqu:false,
-            dashen:false
+            dashen:true
         }
     },
 

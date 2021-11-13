@@ -1,1 +1,267 @@
-/* pages/home/home.wxss */
+/* 头部搜索区域 */
+.searchArea {
+    display: flex;
+    margin-top: 10rpx;
+}
+.searchBorder {
+    width: 80%;
+    border: 2rpx solid #e69157;
+    border-radius: 10rpx;
+    margin-left: 30rpx;
+}
+.searchBorder .weui-input {
+    height: 84rpx;
+    line-height: 84rpx;
+    flex: 1;
+    text-align: center;
+    font-size: 35rpx;
+}
+.addMore {
+    width: 88rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+}
+.addMore .addImg {
+    width: 70rpx;
+    height: 70rpx;
+    line-height: 84rpx;
+    margin: 9rpx 10rpx;
+}
+/* 头部分块区域 */
+.ItemArea {
+    display: flex;
+    margin: 20rpx 0 30rpx 0;
+}
+.ItemArea view {
+    width: 25%;
+    text-align: center;
+    font-size: 35rpx;
+}
+
+/* 大神排行榜 */
+.rankArea {
+    margin-top: 50rpx;
+}
+/* 总榜和月榜 */
+.rankType {
+    width: 480rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    font-size: 35rpx;
+    font-weight: bold;
+    /* border: solid 1rpx #d34c33; */
+    margin: auto;
+}
+.rankType .totalRank {
+    width: 50%;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    border-radius: 30rpx 0 0 30rpx;
+    background-color: #faff9f;
+    border: solid 2rpx #e69157;
+}
+.rankType .monthRank {
+    width: 50%;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    border-radius: 0 30rpx 30rpx 0;
+    background-color: #9affa5;
+    border: solid 2rpx #e69157;
+    
+}
+/* 前三名显示区域 */
+.topThree {
+    display: flex;
+    width: 700rpx;
+    height: 400rpx;
+    margin: auto;
+    margin-top: 20rpx;
+}
+/* 第二名 */
+.topThree .numberTwo {
+    width: 220rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 140rpx;
+}
+.numberTwo .crownSecond {
+    width: 82rpx;
+    height: 82rpx;
+    margin: 0 0 -30rpx 80rpx;
+    rotate: 30deg;
+}
+.numberTwo .avatarImg {
+    width: 110rpx;
+    height: 110rpx;
+}
+.numberTwo .name {
+    font-size: 28rpx;
+    color: #bfbfbf;
+}
+/* 第一名 */
+.topThree .numberOne {
+    width: 220rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.numberOne .crownFirst {
+    width: 82rpx;
+    height: 82rpx;
+    margin-bottom: -20rpx;
+}
+.numberOne .avatarImg {
+    width: 130rpx;
+    height: 130rpx;
+}
+.numberOne .name {
+    font-size: 28rpx;
+    color: #f4ea2d;
+}
+/* 第三名 */
+.topThree .numberThree {
+    width: 220rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 130rpx;
+}
+.numberThree .crownThird {
+    width: 82rpx;
+    height: 82rpx;
+    margin: 0 50rpx -25rpx 0;
+    rotate: -20deg;
+}
+.numberThree .avatarImg {
+    width: 110rpx;
+    height: 110rpx;
+}
+.numberThree .name {
+    color: #d8ae74;
+}
+/* 公共区域 */
+.contribution {
+    display: flex;
+}
+.name {
+    font-size: 28rpx;
+    font-weight: bold;
+}
+.contribution .medal {
+    width: 40rpx;
+    height: 40rpx;
+}
+.contribution .record {
+    font-size: 28rpx;
+    color: #53baa7;
+}
+
+/* 我的贡献区域 */
+.myContainer {
+    height: 100rpx;
+    width: 95%;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    justify-content:unset;
+    text-align: center;
+    border: 1rpx solid #d3d3d3;
+    box-shadow: 20rpx;
+    border-radius: 20rpx;
+    margin: auto;
+}
+.myContainer .myContribution {
+    width: 72rpx;
+    font-size: 30rpx;
+    color: #116500;
+    margin-left: 5rpx;
+}
+.myContainer .myAvatar {
+    width: 80rpx;
+    height: 80rpx;
+}
+.myContainer .name {
+    font-size: 30rpx;
+    width: 95rpx;
+    /* 多行文本隐藏 */
+    display: -webkit-box;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.myContainer .sum {
+    width: 170rpx;
+    font-size: 27rpx;
+    font-weight: normal;
+    margin-left: 15rpx;
+}
+.myContainer .number {
+    font-size: 26rpx;
+    color: #3fb39d;
+    width: 100rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+.myContainer .rankFlag {
+    width: 50rpx;
+    height: 50rpx;
+    margin: 0 5rpx 0 5rpx;
+}
+.myContainer .myRank {
+    width: 150rpx;
+    font-size: 27rpx;
+    color: #3d8585;
+    padding-top: 10rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    right: 0;
+}
+
+/* 其它在榜人员区域 */
+/* 头部信息区域 */
+.header {
+    font-size: 35rpx;
+    align-items: center;
+    display: flex;
+    margin-top: 25rpx;
+}
+.header text {
+    width: 33%;
+    text-align: center;
+    font-weight: bold;
+    color: #978686;
+}
+/* 在榜人员具体信息区域 */
+.scrollContainer {
+    height: 60vh;
+}
+.memberItem {
+    font-size: 30rpx;
+    align-items: center;
+    display: flex;
+    margin-top: 25rpx;
+}
+.memberItem text {
+    width: 33%;
+    text-align: center;
+    font-weight: bold;
+}
+.memberItem .name {
+    max-width: 30%;
+    padding: 0 15rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.memberItem .number {
+    color: #3d8585;
+}
