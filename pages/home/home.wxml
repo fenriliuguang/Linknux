@@ -19,6 +19,18 @@
     <view>
         <view wx:if="{{tab.guanzhu}}">
             关注内容 czh
+            <view>
+                <view class="fenqu_page" wx:for="{{ fenqu_page}}" wx:for-item="item">
+                    <view class="fenqu_box-title" >{{item.title}}</view>
+                    <view class="fenqu_box-word" >{{item.word}}</view>
+                    <view class="buttun" >
+                        <view class="fenqu_box-writer" >{{item.zone}}</view>
+                        <view class="fenqu_box-data" ><text decode>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>{{item.read}}</view>
+                        <view class="fenqu_box-count" >{{item.data}}</view>
+                    </view>
+
+                </view>
+            </view>
         </view>
         <view wx:if="{{tab.resou}}">
             热搜内容 艾震文

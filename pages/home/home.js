@@ -10,8 +10,51 @@ Page({
             resou:false,
             fenqu:false,
             dashen:false
-        }
+        },
+        fenqu_page:[
+            {
+                id:0,
+                title:"标题1",
+                word:"正文",
+                zone:"分区",
+                read:"           XX阅读 XX评论",
+                data:"2021年11月11日",
+            },
+           {
+                id:1,
+                title:"标题2",
+                word:"正文",
+                zone:"分区",
+                read:"           XX阅读  XX评论",
+                data:"2021年11月11日",
+            },
+            {
+                id:2,
+                title:"标题3",
+                word:"正文",
+                zone:"分区",
+                read:"           XX阅读  XX评论",
+                data:"2021年11月11日",
+            },
+            {
+                id:3,
+                title:"标题4",
+                word:"正文",
+                zone:"分区",
+                read:"           XX阅读  XX评论",
+                data:"2021年11月11日",
+            },
+            {
+                id:4,
+                title:"标题5",
+                word:"正文",
+                zone:"分区",
+                read:"           XX阅读  XX评论",
+                data:"2021年11月11日",
+            },
+        ],
     },
+        
 
     ontab: function(e){
         var tab;
