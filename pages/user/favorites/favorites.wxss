@@ -5,11 +5,20 @@
     text-align: center;
     border-bottom:3px solid #F8F8F8;
     border-top:3px solid #F8F8F8;
+    width: 750rpx; 
+    height: 95rpx; 
+    display: block; 
+    box-sizing: border-box;
 }
 
 .title{
     border-bottom:3px solid #F8F8F8;
     font-size: larger;
+    font-weight: 900;
+    width: 750rpx; 
+    display: block;
+    box-sizing: border-box;
+    height: 48rpx；
 }
 .bottom{
     border-bottom:3px solid #F8F8F8;
