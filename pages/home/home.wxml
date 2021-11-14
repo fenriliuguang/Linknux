@@ -83,14 +83,17 @@
                 </view>
             </view>
             <view>
-                <view class="fenqu_page" wx:for="{{ fenqu_page}}" wx:for-item="item">
-                    <view class="fenqu_box-title" >{{item.title}}</view>
-                    <view class="fenqu_box-word" >{{item.word}}</view>
+                <view class="_page" wx:for="{{ fenqu_page}}" wx:for-item="item">
+                    <view class="_box-title" >{{item.title}}</view>
+                    <view class="_box-word" >{{item.word}}</view>
                     <view class="buttun" >
-                        <view class="fenqu_box-writer" >{{item.writer}}</view>
-                        <view class="fenqu_box-data" >{{item.data}}</view>
+                        <!--用户头像图片-->
+                        <image  class="writer_picture" src="../../static/icons/眼睛.png"></image>
+                        <!--用户头像图片-->
+                        <view class="_box-writer" >{{item.writer}}</view>
+                        <view class="_box-data" >{{item.data}}</view>
                         <image  class="eye_image" src="../../static/icons/眼睛.png"></image>
-                        <view class="fenqu_box-count" >{{item.count}}</view>
+                        <view class="_box-count" >{{item.count}}</view>
                     </view>
 
                 </view>

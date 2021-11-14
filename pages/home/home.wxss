@@ -117,7 +117,7 @@
   color: black;
   text-align: center;
 }
-.fenqu_page {
+._page {
   display: flex;
   flex-wrap: wrap;
   width: 700rpx;
@@ -126,14 +126,14 @@
   border-bottom: #eee solid 1px;
   /*align-items: center;*/
 }
-.fenqu_page .fenqu_box-title{
+._page ._box-title{
   width: 750rpx;
   height: 40rpx;
   background-color: white;
   font-size: 40rpx;
   color: black;
 }
-.fenqu_page .fenqu_box-word{
+._page ._box-word{
   width: 750rpx;
   height: 60rpx;
   background-color: white;
@@ -142,13 +142,18 @@
   color: black;
 }
 
-.fenqu_page .buttun{
+._page .buttun{
   display: flex;
   flex-direction: row;
   height: 20rpx;
   width: 750rpx;
 }
-.buttun .fenqu_box-writer{
+.buttun .writer_picture{
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 10rpx;
+}
+.buttun ._box-writer{
   width: 100rpx;
   height: 20rpx;
   background-color: white;
@@ -156,7 +161,7 @@
   padding-left: 20rpx;
   color: black;
 }
-.buttun .fenqu_box-data{
+.buttun ._box-data{
   width: 200rpx;
   height: 20rpx;
   background-color: white;
@@ -169,7 +174,7 @@
   margin-left: 100rpx;
   margin-right: 35rpx;
 }
-.buttun .fenqu_box-count{
+.buttun ._box-count{
   width: 100rpx;
   height: 20rpx;
   background-color: white;
