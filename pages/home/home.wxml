@@ -2,6 +2,7 @@
 <view class="homeContainer">
     <view class="searchArea">
         <view class="searchBorder">
+            <image class="searchIcon" src="../../static/icons/搜索.png"></image>
             <input class="weui-input"  placeholder="搜索"/>
         </view>
         <view class="addMore">
