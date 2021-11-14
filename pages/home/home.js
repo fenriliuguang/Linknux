@@ -10,7 +10,8 @@ Page({
             resou:false,
             fenqu:false,
             dashen:true
-        }
+        },
+        'memberList': [], // 其它在榜成员
     },
 
     ontab: function(e){

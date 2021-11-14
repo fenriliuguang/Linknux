@@ -11,106 +11,10 @@
     <!-- 求助区域 -->
     <view class="helpArea">
         <scroll-view class="helpScroll">
-            <view class="helpItem">
+            <view class="helpItem" wx:for="{{helpList}}">
                 <image class="icon" src="../../static/icons/已收藏.png"></image>
                 <view class="content">
                     <view class="detailContent">文章标题.md</view>
-                    <view class="translateType">英 -> 中</view>
-                </view>
-                <view class="check">查看</view>
-            </view>
-            <view class="helpItem">
-                <image class="icon" src="../../static/icons/已收藏.png"></image>
-                <view class="content">
-                    <view class="detailContent">具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章</view>
-                    <view class="translateType">英 -> 中</view>
-                </view>
-                <view class="check">查看</view>
-            </view>
-            <view class="helpItem">
-                <image class="icon" src="../../static/icons/已收藏.png"></image>
-                <view class="content">
-                    <view class="detailContent">具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章</view>
-                    <view class="translateType">英 -> 中</view>
-                </view>
-                <view class="check">查看</view>
-            </view>
-            <view class="helpItem">
-                <image class="icon" src="../../static/icons/已收藏.png"></image>
-                <view class="content">
-                    <view class="detailContent">具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章</view>
-                    <view class="translateType">英 -> 中</view>
-                </view>
-                <view class="check">查看</view>
-            </view>
-            <view class="helpItem">
-                <image class="icon" src="../../static/icons/已收藏.png"></image>
-                <view class="content">
-                    <view class="detailContent">具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章</view>
-                    <view class="translateType">英 -> 中</view>
-                </view>
-                <view class="check">查看</view>
-            </view>
-            <view class="helpItem">
-                <image class="icon" src="../../static/icons/已收藏.png"></image>
-                <view class="content">
-                    <view class="detailContent">具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章</view>
-                    <view class="translateType">英 -> 中</view>
-                </view>
-                <view class="check">查看</view>
-            </view>
-            <view class="helpItem">
-                <image class="icon" src="../../static/icons/已收藏.png"></image>
-                <view class="content">
-                    <view class="detailContent">具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章</view>
-                    <view class="translateType">英 -> 中</view>
-                </view>
-                <view class="check">查看</view>
-            </view>
-            <view class="helpItem">
-                <image class="icon" src="../../static/icons/已收藏.png"></image>
-                <view class="content">
-                    <view class="detailContent">具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章</view>
-                    <view class="translateType">英 -> 中</view>
-                </view>
-                <view class="check">查看</view>
-            </view>
-            <view class="helpItem">
-                <image class="icon" src="../../static/icons/已收藏.png"></image>
-                <view class="content">
-                    <view class="detailContent">具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章</view>
-                    <view class="translateType">英 -> 中</view>
-                </view>
-                <view class="check">查看</view>
-            </view>
-            <view class="helpItem">
-                <image class="icon" src="../../static/icons/已收藏.png"></image>
-                <view class="content">
-                    <view class="detailContent">具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章</view>
-                    <view class="translateType">英 -> 中</view>
-                </view>
-                <view class="check">查看</view>
-            </view>
-            <view class="helpItem">
-                <image class="icon" src="../../static/icons/已收藏.png"></image>
-                <view class="content">
-                    <view class="detailContent">具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章</view>
-                    <view class="translateType">英 -> 中</view>
-                </view>
-                <view class="check">查看</view>
-            </view>
-            <view class="helpItem">
-                <image class="icon" src="../../static/icons/已收藏.png"></image>
-                <view class="content">
-                    <view class="detailContent">文章标题.md</view>
-                    <view class="translateType">英 -> 中</view>
-                </view>
-                <view class="check">查看</view>
-            </view>
-            <view class="helpItem">
-                <image class="icon" src="../../static/icons/已收藏.png"></image>
-                <view class="content">
-                    <view class="detailContent">具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章具体文章</view>
                     <view class="translateType">英 -> 中</view>
                 </view>
                 <view class="check">查看</view>

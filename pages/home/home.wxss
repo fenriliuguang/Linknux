@@ -44,33 +44,24 @@
 }
 /* 总榜和月榜 */
 .rankType {
-    width: 480rpx;
+    width: 100%;
     height: 88rpx;
     line-height: 88rpx;
     display: flex;
-    font-size: 35rpx;
+    font-size: 40rpx;
     font-weight: bold;
     /* border: solid 1rpx #d34c33; */
+    justify-content: center;
     margin: auto;
 }
 .rankType .totalRank {
-    width: 50%;
+    width: 40%;
     height: 88rpx;
     line-height: 88rpx;
     text-align: center;
-    border-radius: 30rpx 0 0 30rpx;
-    background-color: #faff9f;
-    border: solid 2rpx #e69157;
-}
-.rankType .monthRank {
-    width: 50%;
-    height: 88rpx;
-    line-height: 88rpx;
-    text-align: center;
-    border-radius: 0 30rpx 30rpx 0;
+    border-radius: 30rpx;
     background-color: #9affa5;
     border: solid 2rpx #e69157;
-    
 }
 /* 前三名显示区域 */
 .topThree {

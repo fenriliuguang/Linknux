@@ -36,8 +36,7 @@
         <view class="rankArea" wx:if="{{tab.dashen}}">
             <!-- 总榜和月榜 -->
             <view class="rankType">
-                <view class="totalRank">总榜</view>
-                <view class="monthRank">月榜</view>
+                <view class="totalRank">排行榜</view>
             </view>
             <!-- 前三名显示区域 -->
             <view class="topThree">
@@ -89,113 +88,8 @@
                 </view>
                 <!-- 在榜人员具体信息区域 -->
                 <scroll-view class="scrollContainer" scroll-y="true">
-                    <view class="memberItem">
+                    <view class="memberItem" wx:for="{{memberList}}">
                         <text class="name">吕小布</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
-                        <text class="number">180000</text>
-                        <text class="rank">11111111</text>
-                    </view>
-                    <view class="memberItem">
-                        <text class="name">用户三</text>
                         <text class="number">180000</text>
                         <text class="rank">11111111</text>
                     </view>
