@@ -14,3 +14,11 @@
 .bottom{
     border-bottom:3px solid #F8F8F8;
 }
+.image{
+    width: 50rpx; 
+    height: 50rpx; 
+    display: inline-block; 
+    box-sizing: border-box; 
+    position: relative; 
+    left: 260rpx; 
+}

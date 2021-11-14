@@ -1,11 +1,21 @@
 <!--pages/user/user.wxml-->
 <view class="text" style="width: 750rpx; height: 95rpx; display: block; box-sizing: border-box">用户中心</view>
-<view id="container" style="width: 750rpx; height: 113rpx; display: flex; box-sizing: border-box">
+<view id="container" style="border-bottom:2px solid #F8F8F8;width: 750rpx; height: 113rpx; display: flex; box-sizing: border-box">
     <cover-image id="icon" src="{{avatarUrl}}"  style="width: 90rpx; height: 90rpx; display: block; box-sizing: border-box"></cover-image>
 </view>
-<view class="button" style="width: 750rpx; height: 467rpx; display: block; box-sizing: border-box">
-<view bindtap="favorites" style="width: 162rpx;">收藏夹</view>
-<view bindtap="contribution"style="width: 162rpx;">我的贡献</view>
-<view bindtap="history"style="width: 162rpx;">历史记录</view>
-<view bindtap="fans"style="width: 162rpx;">关注/粉丝</view>
+<view style="border-bottom: 2px solid #F8F8F8;height: 72rpx;">
+<view bindtap="favorites" style="font-size:larger;position: relative; top: 15rpx; width: 150px;">收藏夹</view>
 </view>
+<view style="border-bottom:2px solid #F8F8F8;height: 72rpx;">
+<view bindtap="contribution"style="font-size:larger;position: relative; top: 15rpx; width: 150px;">我的贡献</view>
+</view>
+<view style="border-bottom:2px solid #F8F8F8;height: 72rpx;">
+<view bindtap="history" style="font-size:larger;position: relative; top: 15rpx; width: 150px;">历史记录</view>
+</view>
+<view style="border-bottom:2px solid #F8F8F8;height: 72rpx;">
+<view bindtap="fans"style="font-size:larger;position: relative; top: 15rpx; width: 150px;">关注/粉丝</view>
+</view>
+
+
+
+
