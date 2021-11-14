@@ -44,7 +44,9 @@ Page({
                                         // 登录接口
                                         url: 'http://localhost:8080/login',
                                         data: {
-                                            code: res.code
+                                            code: res.code,
+                                            username: this.data.userInfo.nickName,
+                                            avatarUrl: this.data.avatarUrl
                                         },
                                         success: (r) => {
                                             
