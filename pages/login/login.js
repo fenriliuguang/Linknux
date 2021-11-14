@@ -66,7 +66,9 @@ Page({
                                                     url: '/pages/home/home',
                                                 })
                                             }
-                                        }
+                                        },
+                                        method:"POST",
+                                        dataType:"json"
                                     })
                                 }
                             }
