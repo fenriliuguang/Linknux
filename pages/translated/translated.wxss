@@ -1,0 +1,17 @@
+/* pages/translated/translated.wxss */
+.three{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    box-sizing: border-box;
+}
+.eye{
+    margin-right: 90rpx;
+  }
+.like{
+    margin-right: 80rpx;
+}
+.star{
+    margin-right: 70rpx;
+}

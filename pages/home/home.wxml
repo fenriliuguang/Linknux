@@ -1,11 +1,11 @@
 <!--pages/home/home.wxml-->
 <view>
     <view class ="head"  style="height: 99rpx; display: flex; ">
-        <view>
-            <input style=" width: 507rpx; height: 94rpx; "  placeholder="搜索"/>
+        <view class="Search">
+            <input id="search" style=" width: 330px; height: 42px; "  placeholder="搜索"/>
         </view>
-        <view>
-            <image src="../../static/icons/添加-线性.png" style="width: 94rpx; height: 92rpx;"></image>
+        <view class="plus">
+            <image src="../../static/icons/添加-线性.png" style="width: 35px; height: 35px;"></image>
         </view>
     </view>
     <view class="container">

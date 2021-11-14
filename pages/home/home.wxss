@@ -6,8 +6,17 @@
   justify-content:space-around;
   box-sizing: border-box;
 }
-
-
+#search{
+  border: #E69157 solid 3px;
+  border-radius: 5px;
+}
+.Search{
+  margin-left:30rpx; 
+}
 .head{
-    padding:0 100rpx;
+    padding:0;
+}
+.plus{
+  margin-left: 35rpx;
+  padding-top:10rpx ;
 }

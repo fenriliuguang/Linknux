@@ -1,0 +1,21 @@
+<!--pages/translated/translated.wxml-->
+<view class="class">
+    
+     <view class="file">
+            <image src="../../static/icons/头像.png" style="width: 170rpx; height: 170rpx;"></image>
+     </view>
+     <view class="three">
+        <view class="eye">
+              <image src="../../static/icons/眼睛.png" style="width: 40rpx;height: 40rpx;"></image>
+         </view>
+         <text>{{looknum}}</text>
+         <view class="like">
+              <image src="../../static/icons/赞.png" style="width: 40rpx;height: 40rpx;"></image>
+          </view>
+          <text>{{likenum}}</text>
+         <view class="star">
+                <image src="../../static/icons/收藏.png" style="width: 40rpx;height: 40rpx;"></image>
+         </view>
+         <text>{{starnum}}</text>
+     </view>
+</view>
