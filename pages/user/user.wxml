@@ -1,2 +1,14 @@
 <!--pages/user/user.wxml-->
 <text>pages/user/user.wxml</text>
+<view>
+    <view class="history_top">
+        <image class="back_picture" src="../../static/icons/返回.png"></image>
+        <view class="title">历史记录</view>
+    </view>
+    <view class="history_page" wx:for="{{ history_page}}" wx:for-item="item">
+        <view class="text">{{item.text}}</view>
+        <view class="date">{{item.date}}</view>
+        <view class="time"> {{item.time}}</view>
+
+    </view>
+</view>
