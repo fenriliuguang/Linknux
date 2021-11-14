@@ -1,2 +1,24 @@
 <!--pages/user/favorites/favorites.wxml-->
 <text>pages/user/favorites/favorites.wxml</text>
+=======
+<view class="top" style="width: 750rpx; height: 95rpx; display: block; box-sizing: border-box">收藏夹</view>
+<view style="border-bottom: 3px solid #F8F8F8; width: 750rpx; height: 172rpx; display: block; box-sizing: border-box">
+<view class="title" style="font-weight: 900; width: 750rpx; display: block; box-sizing: border-box; height: 48rpx">标题</view>
+
+<view class="bottom" style="width: 750rpx; height: 81rpx; display: block; box-sizing: border-box">
+<text style="font-size: larger;">摘要</text>
+</view>
+<view style="width: 750rpx; height: 43rpx; display: block; box-sizing: border-box">
+<cover-image id="icon" src="{{avatarUrl}}"  style="width: 40rpx; height: 40rpx; display: block; box-sizing: border-box"></cover-image>
+<text style="position: relative; left: 39rpx; top: -48rpx">name</text>
+<image src="../../../static/icons/眼睛.png" style="width: 57rpx; height: 41rpx; display: inline-block; box-sizing: border-box; position: relative; left: 267rpx; top: -39rpx">
+</image>
+<text style="position: relative; left: 267rpx; top: -48rpx">num1</text>
+<image src="../../../static/icons/赞.png" style="width: 57rpx; height: 41rpx; display: inline-block; box-sizing: border-box; position: relative; left: 267rpx; top: -39rpx">
+</image>
+<text style="position: relative; left: 267rpx; top: -48rpx">num2</text>
+<image src="../../../static/icons/已收藏.png" style="width: 57rpx; height: 41rpx; display: inline-block; box-sizing: border-box; position: relative; left: 267rpx; top: -39rpx">
+</image>
+<text style="position: relative; left: 267rpx; top: -48rpx; width: 645rpx; height: 267rpx; display: inline; box-sizing: content-box">num3</text>
+</view>
+</view>

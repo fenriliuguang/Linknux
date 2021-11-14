@@ -1,0 +1,16 @@
+.top{
+    width: max-content;
+    font-size:30px;
+    box-sizing:border-box;
+    text-align: center;
+    border-bottom:3px solid #F8F8F8;
+    border-top:3px solid #F8F8F8;
+}
+
+.title{
+    border-bottom:3px solid #F8F8F8;
+    font-size: larger;
+}
+.bottom{
+    border-bottom:3px solid #F8F8F8;
+}
