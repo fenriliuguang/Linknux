@@ -87,6 +87,7 @@
   padding:0 100rpx;
 }
 
+/*zlr*/
 .fenqu_box {
   background-color: white;
   display: flex;
@@ -175,7 +176,7 @@
   font-size: 20rpx;
   color: black;
 }
-
+/*zlr*/
 .searchArea {
   display: flex;
   margin-top: 10rpx;
