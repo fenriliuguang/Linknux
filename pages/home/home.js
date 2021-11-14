@@ -14,43 +14,23 @@ Page({
         fenqu_page:[
             {
                 id:0,
-                title:"标题",
-                word:"正文",
-                writer:"作者",
-                data:"2000年1月1日",
-                count:"100",
+                name:"页面1"
             },
-           {
+            {
                 id:1,
-                title:"标题",
-                word:"正文",
-                writer:"作者",
-                data:"2000年1月1日",
-                count:"100",
+                name:"页面2"
             },
             {
                 id:2,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                writer:"作者",
-                count:"100",
+                name:"页面3"
             },
             {
                 id:3,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                writer:"作者",
-                count:"100",
+                name:"页面4"
             },
             {
                 id:4,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                writer:"作者",
-                count:"100",
+                name:"页面5"
             },
         ],
     },

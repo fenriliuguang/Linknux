@@ -28,60 +28,21 @@
             <view>
                 十个分类
                 <view class="fenqu_box fenqu_box-1">
-                    <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
-                        <!-- 图片待之后选择应该插入的图片-->
-                        <view class="fenqu_box-item-text">Ubuntu</view>
-                    </view>
-                    <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
-                        <view class="fenqu_box-item-text">Mint</view>
-                    </view>
-                    <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
-                        <view class="fenqu_box-item-text">Kali</view>
-                    </view>
-                    <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
-                        <view class="fenqu_box-item-text">MX Linux</view>
-                    </view>
-                    <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
-                        <view class="fenqu_box-item-text">Pop!_OS</view>
-                    </view>
-                    <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
-                        <view class="fenqu_box-item-text">Solus</view>
-                    </view>
-                    <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
-                        <view class="fenqu_box-item-text">Manjaro</view>
-                    </view>
-                    <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
-                        <view class="fenqu_box-item-text">elementary OS</view>
-                    </view>
-                    <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
-                        <view class="fenqu_box-item-text">Tali</view>
-                    </view> 
-                    <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
-                        <view class="fenqu_box-item-text">查看更多</view>
-                    </view>
+                    <view class="fenqu_box-item">Ubuntu</view>
+                    <view class="fenqu_box-item">Mint</view>
+                    <view class="fenqu_box-item">Kali</view>
+                    <view class="fenqu_box-item">MX Linux</view>
+                    <view class="fenqu_box-item">Pop!_OS</view>
+                    <view class="fenqu_box-item">Solus</view>
+                    <view class="fenqu_box-item">Manjaro</view>
+                    <view class="fenqu_box-item">elementary OS</view>
+                    <view class="fenqu_box-item">Tali</view>
+                    <view class="fenqu_box-item">查看更多</view>
                 </view>
             </view>
             <view>
-                <view class="fenqu_page" wx:for="{{ fenqu_page}}" wx:for-item="item">
-                    <view class="fenqu_box-title" >{{item.title}}</view>
-                    <view class="fenqu_box-word" >{{item.word}}</view>
-                    <view class="buttun" >
-                        <view class="fenqu_box-writer" >{{item.writer}}</view>
-                        <view class="fenqu_box-data" >{{item.data}}</view>
-                        <image  class="eye_image" src="../../static/icons/眼睛.png"></image>
-                        <view class="fenqu_box-count" >{{item.count}}</view>
-                    </view>
-
+                <view wx:for="{{ fenqu_page}}" wx:for-item="item">
+                    {{item.name}}
                 </view>
             </view>
         </view>
