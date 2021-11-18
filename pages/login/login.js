@@ -46,7 +46,7 @@ Page({
                                         data: {
                                             code: res.code,
                                             username: this.data.userInfo.nickName,
-                                            avatarUrl: this.data.avatarUrl
+                                            pic_link: this.data.avatarUrl
                                         },
                                         success: (r) => {
                                             
@@ -58,11 +58,11 @@ Page({
 
                                             if(this.data.isshare){
                                                 app.globalData.roomid = this.data.roomid
-                                                wx.redirectTo({
+                                                wx.switchTab({
                                                   url: '/pages/room/room',
                                                 })
                                             }else {
-                                                wx.redirectTo({
+                                                wx.switchTab({
                                                     url: '/pages/home/home',
                                                 })
                                             }

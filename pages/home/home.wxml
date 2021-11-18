@@ -18,7 +18,7 @@
     <view>
     <!-- 陈宗航 -->
         <view style="border-top: #eee solid 1px;" wx:if="{{tab.guanzhu}}">
-            <view  wx:key="id" class="_page" wx:for="{{ guanzhu_page}}" wx:for-item="item">
+            <view  wx:key="*this" class="_page" wx:for="{{ guanzhu_page}}" wx:for-item="item">
                 <view class="_box-title" >{{item.title}}</view>
                 <view class="_box-word" >{{item.word}}</view>
                 <view class="buttun" >
@@ -38,7 +38,7 @@
         </view>
         <view wx:if="{{tab.resou}}">
         <!-- 艾震文 -->
-            <view  wx:key="id" class="_page" wx:for="{{ resou_page}}" wx:for-item="item">
+            <view  wx:key="*this" class="_page" wx:for="{{ resou_page}}" wx:for-item="item">
                 <view class="_box-title" >{{item.title}}</view>
                 <view class="_box-word" >{{item.word}}</view>
                 <view class="buttun" >
@@ -105,7 +105,7 @@
                 </view>
             </view>
             <view>
-                <view wx:key="id" class="_page" wx:for="{{ fenqu_page}}" wx:for-item="item">
+                <view wx:key="*this" class="_page" wx:for="{{ fenqu_page}}" wx:for-item="item">
                     <view class="_box-title" >{{item.title}}</view>
                     <view class="_box-word" >{{item.word}}</view>
                     <view class="buttun" >

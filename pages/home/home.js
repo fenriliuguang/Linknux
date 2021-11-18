@@ -68,63 +68,7 @@ Page({
                 count3:300
             },
         ],
-        guanzhu_page:[
-            {
-                id:0,
-                title:"标题",
-                word:"正文",
-                writer:"作者",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-           {
-                id:1,
-                title:"标题",
-                word:"正文",
-                writer:"作者",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-            {
-                id:2,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                writer:"作者",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-            {
-                id:3,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                writer:"作者",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-            {
-                id:4,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                writer:"作者",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-        ],
+        guanzhu_page:[],
         resou_page:[
             {
                 id:0,
@@ -206,13 +150,20 @@ Page({
             tab:tab
         })
 
+        var arr;
+
         switch(e.currentTarget.dataset.tab){
             case "guanzhu":
-                var guanzhu = getApp().resquest.getIndex(1,10,"score");
+                arr = getApp().resquest.getFollow(1,10,"score");
                 this.setData({
-                    guanzhu_page:guanzhu
+                    guanzhu_page:arr
                 });
                 break;
+            case "resou":
+                arr = getApp().resquest.getIndex(1,10,"score");
+                this.setData({
+                    fenqu_page:arr
+                });
         }
     },
 
@@ -227,11 +178,11 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        var guanzhu = getApp().resquest.getIndex(1,10,"score");
+        // var guanzhu = getApp().resquest.getIndex(1,10,"score");
 
-        this.setData({
-            guanzhu_page:guanzhu
-        });
+        // this.setData({
+        //     guanzhu_page:guanzhu
+        // });
     },
 
     /**
