@@ -155,15 +155,23 @@ Page({
         switch(e.currentTarget.dataset.tab){
             case "guanzhu":
                 arr = getApp().resquest.getFollow(1,10,"score");
-                this.setData({
-                    guanzhu_page:arr
-                });
+                setTimeout(()=>{
+                    this.setData({
+                        guanzhu_page:arr
+                    });
+                })
                 break;
             case "resou":
                 arr = getApp().resquest.getIndex(1,10,"score");
-                this.setData({
-                    fenqu_page:arr
-                });
+                setTimeout(()=>{
+                    this.setData({
+                        fenqu_page:arr
+                    });
+                })
+                break;
+            case "fenqu":
+
+                break;
         }
     },
 
@@ -178,11 +186,12 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        // var guanzhu = getApp().resquest.getIndex(1,10,"score");
-
-        // this.setData({
-        //     guanzhu_page:guanzhu
-        // });
+        var arr = getApp().resquest.getFollow(1,10,"score");
+        setTimeout(()=>{
+            this.setData({
+                guanzhu_page:arr
+            });
+        })
     },
 
     /**

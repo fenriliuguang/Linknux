@@ -1,6 +1,6 @@
 // app.js
 
-function setObj(res){
+function setObj(res,i){
   var object = {
     id:0,
     title:"标题",
@@ -13,11 +13,13 @@ function setObj(res){
     count3:300,
     link:""
   };
+  var d = new Date(res.data.data[i].create_time)
   object.id = res.data.data[i].post_id;
   object.title = res.data.data[i].title;
   object.word = res.data.data[i].content;
   object.writer = res.data.data[i].author_name;
-  object.data = res.data.data[i].create_time;
+
+  object.data = d.getFullYear() + "年" + d.getMonth + "月" +d.getDate() + "日";
   object.avatarUrl = res.data.data[i].pic_link;
   object.count1 = res.data.data[i].viewd_num;
   object.count2 = res.data.data[i].vote_num;
@@ -62,10 +64,8 @@ App({
           'user_id':this.globalData.openid
         },
         success(res){
-          console.log(res);
-          
           for(var i = 0;i<res.data.data.length;i++){
-            arr.push(setObj(res));
+            arr.push(setObj(res,i));
           }
         }
       })
@@ -88,7 +88,7 @@ App({
         success(res){
           console.log(res);
           for(var i = 0;i<res.data.data.length;i++){
-            arr.push(setObj(res));
+            arr.push(setObj(res,i));
           }
         }
       })
