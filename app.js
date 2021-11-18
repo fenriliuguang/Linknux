@@ -19,7 +19,7 @@ function setObj(res,i){
   object.word = res.data.data[i].content;
   object.writer = res.data.data[i].author_name;
 
-  object.data = d.getFullYear() + "年" + d.getMonth + "月" +d.getDate() + "日";
+  object.data = d.getFullYear() + "年" + d.getMonth() + "月" +d.getDate() + "日";
   object.avatarUrl = res.data.data[i].pic_link;
   object.count1 = res.data.data[i].viewd_num;
   object.count2 = res.data.data[i].vote_num;
@@ -60,9 +60,6 @@ App({
         },
         dataType:"json",
         method:"GET",
-        header:{
-          'user_id':this.globalData.openid
-        },
         success(res){
           for(var i = 0;i<res.data.data.length;i++){
             arr.push(setObj(res,i));

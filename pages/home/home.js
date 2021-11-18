@@ -159,7 +159,7 @@ Page({
                     this.setData({
                         guanzhu_page:arr
                     });
-                })
+                },200)
                 break;
             case "resou":
                 arr = getApp().resquest.getIndex(1,10,"score");
@@ -167,7 +167,7 @@ Page({
                     this.setData({
                         fenqu_page:arr
                     });
-                })
+                },200)
                 break;
             case "fenqu":
 
@@ -188,10 +188,11 @@ Page({
     onReady: function () {
         var arr = getApp().resquest.getFollow(1,10,"score");
         setTimeout(()=>{
+            console.log(arr)
             this.setData({
                 guanzhu_page:arr
             });
-        })
+        },200)
     },
 
     /**
