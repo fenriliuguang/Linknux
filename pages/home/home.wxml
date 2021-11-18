@@ -1,38 +1,60 @@
-<!--pages/home/home.wxml-->
 <view>
     <view class ="head"  style="height: 99rpx; display: flex; ">
-        <view>
-            <input style=" width: 507rpx; height: 94rpx; "  placeholder="搜索"/>
+        <view class="Search">
+            <input id="search" style="  height: 42px; "  placeholder="搜索"/>
         </view>
-        <view>
-            <image src="../../static/icons/添加-线性.png" style="width: 94rpx; height: 92rpx;"></image>
+        <view class="plus">
+            <image src="../../static/icons/plus.png" style="width: 35px; height: 35px;"></image>
         </view>
     </view>
     <view class="container">
-        <view data-tab="guanzhu" bindtap="ontab" style=" width: 98rpx; height: 52rpx;">关注</view>
-        <view data-tab="resou" bindtap="ontab" style="width: 98rpx; height: 52rpx;">热搜</view>
-        <view data-tab="fenqu" bindtap="ontab" style="width: 98rpx; height: 52rpx;">分区</view>
-        <view data-tab="dashen" bindtap="ontab" style="width: 98rpx; height: 52rpx;">大神榜</view>
+        <view class="{{tab.guanzhu?'choosen':''}}" data-tab="guanzhu" bindtap="ontab" style="text-align: center; width: 25%; height: 52rpx;">关注</view>
+        <view class="{{tab.resou?'choosen':''}}" data-tab="resou" bindtap="ontab" style="text-align: center;width: 25%; height: 52rpx;">热搜</view>
+        <view class="{{tab.fenqu?'choosen':''}}" data-tab="fenqu" bindtap="ontab" style="text-align: center;width: 25%; height: 52rpx;">分区</view>
+        <view class="{{tab.dashen?'choosen':''}}" data-tab="dashen" bindtap="ontab" style="text-align: center;width: 25%; height: 52rpx;">大神榜</view>
     </view>
 
 
     <view>
     <!-- 陈宗航 -->
-        <view wx:if="{{tab.guanzhu}}">
-            <view class="guanzhu_page" wx:for="{{ guanzhu_page}}" wx:for-item="item">
-                <view class="guanzhu_box-title" >{{item.title}}</view>
-                <view class="guanzhu_box-word" >{{item.word}}</view>
+        <view style="border-top: #eee solid 1px;" wx:if="{{tab.guanzhu}}">
+            <view  wx:key="id" class="_page" wx:for="{{ guanzhu_page}}" wx:for-item="item">
+                <view class="_box-title" >{{item.title}}</view>
+                <view class="_box-word" >{{item.word}}</view>
                 <view class="buttun" >
-                    <view class="guanzhu_box-writer" >{{item.zone}}</view>
-                    <view class="guanzhu_box-data" ><text decode>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>{{item.read}}</view>
-                    <view class="guanzhu_box-count" >{{item.data}}</view>
-                    </view>
-
+                    <!--用户头像图片-->
+                    <image  class="writer_picture" src="{{ item.avatarUrl }}"></image>
+                        <!--用户头像图片-->
+                    <view class="_box-writer" >{{item.writer}}</view>
+                    <view class="_box-data" >{{item.data}}</view>
+                    <image  class="eye_image" src="../../static/icons/eye.png"></image>
+                    <view class="_box-count" >{{item.count1}}</view>
+                    <image  class="eye_image" src="../../static/icons/like.png"></image>
+                    <view class="_box-count" >{{item.count2}}</view>
+                    <image  class="eye_image" src="../../static/icons/star.png"></image>
+                    <view class="_box-count" >{{item.count3}}</view>
+                </view>
             </view>
         </view>
         <view wx:if="{{tab.resou}}">
         <!-- 艾震文 -->
-            热搜内容 艾震文
+            <view  wx:key="id" class="_page" wx:for="{{ resou_page}}" wx:for-item="item">
+                <view class="_box-title" >{{item.title}}</view>
+                <view class="_box-word" >{{item.word}}</view>
+                <view class="buttun" >
+                    <!--用户头像图片-->
+                    <image  class="writer_picture" src="{{ item.avatarUrl }}"></image>
+                        <!--用户头像图片-->
+                    <view class="_box-writer" >{{item.writer}}</view>
+                    <view class="_box-data" >{{item.data}}</view>
+                    <image  class="eye_image" src="../../static/icons/eye.png"></image>
+                    <view class="_box-count" >{{item.count1}}</view>
+                    <image  class="eye_image" src="../../static/icons/like.png"></image>
+                    <view class="_box-count" >{{item.count2}}</view>
+                    <image  class="eye_image" src="../../static/icons/star.png"></image>
+                    <view class="_box-count" >{{item.count3}}</view>
+                </view>
+            </view>
         </view>
         <view wx:if="{{tab.fenqu}}">
         <!-- 分区内容  zlr -->
@@ -83,16 +105,22 @@
                 </view>
             </view>
             <view>
-                <view class="fenqu_page" wx:for="{{ fenqu_page}}" wx:for-item="item">
-                    <view class="fenqu_box-title" >{{item.title}}</view>
-                    <view class="fenqu_box-word" >{{item.word}}</view>
+                <view wx:key="id" class="_page" wx:for="{{ fenqu_page}}" wx:for-item="item">
+                    <view class="_box-title" >{{item.title}}</view>
+                    <view class="_box-word" >{{item.word}}</view>
                     <view class="buttun" >
-                        <view class="fenqu_box-writer" >{{item.writer}}</view>
-                        <view class="fenqu_box-data" >{{item.data}}</view>
-                        <image  class="eye_image" src="../../static/icons/眼睛.png"></image>
-                        <view class="fenqu_box-count" >{{item.count}}</view>
+                            <!--用户头像图片-->
+                            <image  class="writer_picture" src="{{ item.avatarUrl }}"></image>
+                        <!--用户头像图片-->
+                            <view class="_box-writer" >{{item.writer}}</view>
+                            <view class="_box-data" >{{item.data}}</view>
+                            <image  class="eye_image" src="../../static/icons/eye.png"></image>
+                            <view class="_box-count" >{{item.count1}}</view>
+                            <image  class="eye_image" src="../../static/icons/like.png"></image>
+                            <view class="_box-count" >{{item.count2}}</view>
+                            <image  class="eye_image" src="../../static/icons/star.png"></image>
+                            <view class="_box-count" >{{item.count3}}</view>
                     </view>
-
                 </view>
             </view>
         </view>
@@ -100,8 +128,7 @@
             <view class="rankArea" wx:if="{{tab.dashen}}">
             <!-- 总榜和月榜 -->
                 <view class="rankType">
-                    <view class="totalRank">总榜</view>
-                    <view class="monthRank">月榜</view>
+                    <view class="totalRank">排行榜</view>
                 </view>
                 <!-- 前三名显示区域 -->
                 <view class="topThree">
@@ -153,115 +180,10 @@
                     </view>
                     <!-- 在榜人员具体信息区域 -->
                     <scroll-view class="scrollContainer" scroll-y="true">
-                        <view class="memberItem">
-                            <text class="name">吕小布</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
+                        <view wx:key="id" class="memberItem" wx:for="{{memberList}}" wx:for-item="item">
+                            <text class="name">{{item.name}}</text>
+                            <text class="number">{{item.number}}</text>
+                            <text class="rank">{{item.rank}}</text>
                         </view>
                     </scroll-view>
                 </view>

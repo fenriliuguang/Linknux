@@ -18,7 +18,10 @@ Page({
                 word:"正文",
                 writer:"作者",
                 data:"2000年1月1日",
-                count:"100",
+                avatarUrl:"../../static/icons/眼睛.png",
+                count1:100,
+                count2:200,
+                count3:300
             },
            {
                 id:1,
@@ -26,74 +29,166 @@ Page({
                 word:"正文",
                 writer:"作者",
                 data:"2000年1月1日",
-                count:"100",
+                avatarUrl:"../../static/icons/眼睛.png",
+                count1:100,
+                count2:200,
+                count3:300
             },
             {
                 id:2,
                 title:"标题",
                 word:"正文",
                 data:"2000年1月1日",
+                avatarUrl:"../../static/icons/眼睛.png",
                 writer:"作者",
-                count:"100",
+                count1:100,
+                count2:200,
+                count3:300
             },
             {
                 id:3,
                 title:"标题",
                 word:"正文",
                 data:"2000年1月1日",
+                avatarUrl:"../../static/icons/眼睛.png",
                 writer:"作者",
-                count:"100",
+                count1:100,
+                count2:200,
+                count3:300
             },
             {
                 id:4,
                 title:"标题",
                 word:"正文",
                 data:"2000年1月1日",
+                avatarUrl:"../../static/icons/眼睛.png",
                 writer:"作者",
-                count:"100",
+                count1:100,
+                count2:200,
+                count3:300
             },
         ],
         guanzhu_page:[
             {
                 id:0,
-                title:"标题1",
+                title:"标题",
                 word:"正文",
-                zone:"分区",
-                read:"           XX阅读 XX评论",
-                data:"2021年11月11日",
+                writer:"作者",
+                data:"2000年1月1日",
+                avatarUrl:"../../static/icons/眼睛.png",
+                count1:100,
+                count2:200,
+                count3:300
             },
            {
                 id:1,
-                title:"标题2",
+                title:"标题",
                 word:"正文",
-                zone:"分区",
-                read:"           XX阅读  XX评论",
-                data:"2021年11月11日",
+                writer:"作者",
+                data:"2000年1月1日",
+                avatarUrl:"../../static/icons/眼睛.png",
+                count1:100,
+                count2:200,
+                count3:300
             },
             {
                 id:2,
-                title:"标题3",
+                title:"标题",
                 word:"正文",
-                zone:"分区",
-                read:"           XX阅读  XX评论",
-                data:"2021年11月11日",
+                data:"2000年1月1日",
+                avatarUrl:"../../static/icons/眼睛.png",
+                writer:"作者",
+                count1:100,
+                count2:200,
+                count3:300
             },
             {
                 id:3,
-                title:"标题4",
+                title:"标题",
                 word:"正文",
-                zone:"分区",
-                read:"           XX阅读  XX评论",
-                data:"2021年11月11日",
+                data:"2000年1月1日",
+                avatarUrl:"../../static/icons/眼睛.png",
+                writer:"作者",
+                count1:100,
+                count2:200,
+                count3:300
             },
             {
                 id:4,
-                title:"标题5",
+                title:"标题",
                 word:"正文",
-                zone:"分区",
-                read:"           XX阅读  XX评论",
-                data:"2021年11月11日",
+                data:"2000年1月1日",
+                avatarUrl:"../../static/icons/眼睛.png",
+                writer:"作者",
+                count1:100,
+                count2:200,
+                count3:300
             },
+        ],
+        resou_page:[
+            {
+                id:0,
+                title:"标题",
+                word:"正文",
+                writer:"作者",
+                data:"2000年1月1日",
+                avatarUrl:"../../static/icons/眼睛.png",
+                count1:100,
+                count2:200,
+                count3:300
+            },
+           {
+                id:1,
+                title:"标题",
+                word:"正文",
+                writer:"作者",
+                data:"2000年1月1日",
+                avatarUrl:"../../static/icons/眼睛.png",
+                count1:100,
+                count2:200,
+                count3:300
+            },
+            {
+                id:2,
+                title:"标题",
+                word:"正文",
+                data:"2000年1月1日",
+                avatarUrl:"../../static/icons/眼睛.png",
+                writer:"作者",
+                count1:100,
+                count2:200,
+                count3:300
+            },
+            {
+                id:3,
+                title:"标题",
+                word:"正文",
+                data:"2000年1月1日",
+                avatarUrl:"../../static/icons/眼睛.png",
+                writer:"作者",
+                count1:100,
+                count2:200,
+                count3:300
+            },
+            {
+                id:4,
+                title:"标题",
+                word:"正文",
+                data:"2000年1月1日",
+                avatarUrl:"../../static/icons/眼睛.png",
+                writer:"作者",
+                count1:100,
+                count2:200,
+                count3:300
+            },
+        ],
+        memberList: [
+            {
+                id:0,
+                name:"吕布",
+                number:1000,
+                rank:11111
+            }
         ],
     },
 
@@ -110,27 +205,39 @@ Page({
         this.setData({
             tab:tab
         })
+
+        switch(e.currentTarget.dataset.tab){
+            case "guanzhu":
+                var guanzhu = getApp().resquest.getIndex(1,10,"score");
+                this.setData({
+                    guanzhu_page:guanzhu
+                });
+                break;
+        }
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+         
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
+        var guanzhu = getApp().resquest.getIndex(1,10,"score");
 
+        this.setData({
+            guanzhu_page:guanzhu
+        });
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
     },
 
     /**
