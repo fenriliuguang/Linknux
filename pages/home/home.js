@@ -11,129 +11,12 @@ Page({
             fenqu:false,
             dashen:false
         },
-        fenqu_page:[
-            {
-                id:0,
-                title:"标题",
-                word:"正文",
-                writer:"作者",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-           {
-                id:1,
-                title:"标题",
-                word:"正文",
-                writer:"作者",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-            {
-                id:2,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                writer:"作者",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-            {
-                id:3,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                writer:"作者",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-            {
-                id:4,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                writer:"作者",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-        ],
+        me:null,
+        fenqu_page:[],
         guanzhu_page:[],
-        resou_page:[
-            {
-                id:0,
-                title:"标题",
-                word:"正文",
-                writer:"作者",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-           {
-                id:1,
-                title:"标题",
-                word:"正文",
-                writer:"作者",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-            {
-                id:2,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                writer:"作者",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-            {
-                id:3,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                writer:"作者",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-            {
-                id:4,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                avatarUrl:"../../static/icons/眼睛.png",
-                writer:"作者",
-                count1:100,
-                count2:200,
-                count3:300
-            },
-        ],
-        memberList: [
-            {
-                id:0,
-                name:"吕布",
-                number:1000,
-                rank:11111
-            }
-        ],
+        resou_page:[],
+        memberList: [],
+        list:[]
     },
 
     ontab: function(e){
@@ -151,6 +34,12 @@ Page({
         })
 
         var arr;
+        var me = {
+            pic_link : '',
+            username : '',
+            rank : null,
+            contribution : 0
+        }
 
         switch(e.currentTarget.dataset.tab){
             case "guanzhu":
@@ -165,14 +54,58 @@ Page({
                 arr = getApp().resquest.getIndex(1,10,"score");
                 setTimeout(()=>{
                     this.setData({
-                        fenqu_page:arr
+                        resou_page:arr
                     });
                 },200)
                 break;
             case "fenqu":
+                
+                break;
 
+            case "dashen":
+                var data = getApp().resquest.getRank();
+                setTimeout(()=>{
+                    console.log(data)
+                    me.contribution = data.me[0].contribution;
+                    me.pic_link = data.me[0].pic_link;
+                    me.username = data.me[0].username;
+                    me.rank = '未上榜';
+                    for(var i = 0;i<data.rank.length;i++){
+                        if(data.me[0].pic_link === data.rank[i].pic_link){
+                            me.rank = i+1;
+                            setTimeout(() => {
+                                this.setData({
+                                    me:me
+                                })
+                            },200)
+                        }
+                    }
+                    setTimeout(() => {
+                        this.setData({
+                            memberList:arr
+                        })
+                        this.setData({
+                            list:this.data.memberList.slice(3)
+                        })
+                    }, 200);
+                },300)
+                setTimeout(() => {
+                    arr = data.rank;
+                },200);
+                
                 break;
         }
+    },
+
+    fenquOnTab: function(e){
+        var arr = getApp().resquest.getFenqu(1,10,"score",e.currentTarget.dataset.tab);
+
+        setTimeout(()=>{
+            this.setData({
+                fenqu_page:arr
+            });
+        },200)
+
     },
 
     /**
@@ -188,7 +121,6 @@ Page({
     onReady: function () {
         var arr = getApp().resquest.getFollow(1,10,"score");
         setTimeout(()=>{
-            console.log(arr)
             this.setData({
                 guanzhu_page:arr
             });

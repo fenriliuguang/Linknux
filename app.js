@@ -91,6 +91,47 @@ App({
       })
 
       return arr;
+    },
+    getFenqu: function(page,size,order,label_id){
+
+      var arr = [];
+
+      wx.request({
+        url: 'http://localhost:8080/index',
+        data:{
+          page:page,
+          size:size,
+          order:order,
+          label_id:parseInt(label_id)
+        },
+        dataType:"json",
+        method:"GET",
+        success(res){
+          console.log(res);
+          for(var i = 0;i<res.data.data.length;i++){
+            arr.push(setObj(res,i));
+          }
+        }
+      })
+
+      return arr;
+    },
+    getRank: function(){
+      var data = {
+        me:null,
+        rank:null
+      }
+      wx.request({
+        url: 'http://localhost:8080/rank',
+        method:'GET',
+        success(res){
+          data.me = res.data.data.me;
+          data.rank = res.data.data.rank;
+        }
+      });
+
+      console.log(data)
+      return data;
     }
   }
 })
