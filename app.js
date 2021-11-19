@@ -1,5 +1,5 @@
 // app.js
-const host = "http://192.168.1.3:8080";
+const host = "http://192.168.43.221:8080";
 function setObj(res,i){
   var object = {
     id:0,
@@ -149,6 +149,24 @@ App({
 
       console.log(data)
       return data;
+    },
+    search: function(s){
+      var arr = [];
+      wx.request({
+        url: host + '/search',
+        method: 'GET',
+        data:{
+          search : s
+        },
+        success(res){
+          console.log(res);
+          for(var i = 0;i<res.data.data.length;i++){
+            arr.push(setObj(res,i));
+          }
+        }
+      });
+      
+      return arr;
     }
   }
 })

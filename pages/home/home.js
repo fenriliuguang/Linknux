@@ -19,6 +19,14 @@ Page({
         list:[]
     },
 
+    search:function(e){
+        console.log(e.detail.value);
+
+        wx.navigateTo({
+          url: '../result/result?search=' + e.detail.value,
+        })
+    },
+
     ontab: function(e){
         var tab;
         tab = this.data.tab;

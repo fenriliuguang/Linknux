@@ -1,0 +1,85 @@
+/* pages/result/result.wxss */
+page{
+  height: 100%;
+}
+#search{
+  border: #E69157 solid 2rpx;
+  border-radius: 5rpx;
+  padding: 0 20rpx;
+}
+.Search{
+  margin-left:30rpx;
+  width: 70%;
+}
+.head{
+  padding:0;
+}
+.plus{
+  margin-left: 40rpx;
+  padding-top:10rpx ;
+}
+
+._page {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px 30px;
+  border-bottom: #eee solid 1px;
+  /*align-items: center;*/
+}
+._page ._box-title{
+  font-weight: 600;
+  width: 100%;
+  height: 40rpx;
+  background-color: white;
+  font-size: 18px;
+  color: black;
+}
+._page ._box-word{
+  width: 100%;
+  height: 60rpx;
+  background-color: white;
+  font-size: 14px;
+  color: #BDBDBD;
+  margin-top: 20rpx;
+}
+
+._page .buttun{
+  display: flex;
+  height: 25px;
+  font-size: 12px;
+  line-height: 12px;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 100%;
+}
+.buttun .writer_picture{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.buttun ._box-writer{
+  width: 100rpx;
+  line-height: 16px;
+  font-size: 20rpx;
+  background-color: white;
+  padding-left: 20rpx;
+}
+.buttun ._box-data{
+  width: 30%;
+  font-size: 20rpx;
+  line-height: 16px;
+  text-align: center;
+  background-color: white;
+}
+.buttun .eye_image{
+  width: 17px;
+  height: 17px;
+}
+.buttun ._box-count{
+  width: 30px;
+  line-height: 16px;
+  text-align: center;
+  margin-right: 4px;
+  background-color: white;
+}

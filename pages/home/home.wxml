@@ -1,7 +1,7 @@
 <view style="height:100%;">
     <view class ="head"  style="height: 99rpx; display: flex; ">
         <view class="Search">
-            <input id="search" style="  height: 42px; "  placeholder="搜索"/>
+            <input bindconfirm="search" confirm-type="search" id="search" style="  height: 42px; "  placeholder="搜索"/>
         </view>
         <view class="plus">
             <image src="../../static/icons/plus.png" style="width: 35px; height: 35px;"></image>

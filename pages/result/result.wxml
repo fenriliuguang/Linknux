@@ -1,0 +1,33 @@
+<!--pages/result/result.wxml-->
+<view style="height: 100%;">
+  <view class ="head"  style="height: 99rpx; display: flex; ">
+        <view class="Search">
+            <input bindconfirm="search" confirm-type="search" id="search" style="  height: 42px; "  placeholder="搜索"/>
+        </view>
+        <view class="plus">
+            <image src="../../static/icons/plus.png" style="width: 35px; height: 35px;"></image>
+        </view>
+  </view>
+  <view style="height: calc(100% - 100rpx);">
+    <scroll-view style="height: 100%;"  scroll-y="true">
+                <view  wx:key="*this" class="_page" wx:for="{{ page}}" wx:for-item="item">
+                    <view class="_box-title" >{{item.title}}</view>
+                    <view class="_box-word" >{{item.word}}</view>
+                    <view class="buttun" >
+                        <!--用户头像图片-->
+                        <image  class="writer_picture" src="{{ item.avatarUrl }}"></image>
+                            <!--用户头像图片-->
+                        <view class="_box-writer" >{{item.writer}}</view>
+                        <view class="_box-data" >{{item.data}}</view>
+                        <image  class="eye_image" src="../../static/icons/eye.png"></image>
+                        <view class="_box-count" >{{item.count1}}</view>
+                        <image  class="eye_image" src="../../static/icons/like.png"></image>
+                        <view class="_box-count" >{{item.count2}}</view>
+                        <image  class="eye_image" src="../../static/icons/star.png"></image>
+                        <view class="_box-count" >{{item.count3}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+  </view>
+
+</view>
