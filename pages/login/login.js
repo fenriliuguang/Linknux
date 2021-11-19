@@ -42,7 +42,7 @@ Page({
                                 if (res.code) {
                                     wx.request({
                                         // 登录接口
-                                        url: 'http://localhost:8080/login',
+                                        url: 'http://192.168.1.3:8080/login',
                                         data: {
                                             code: res.code,
                                             username: this.data.userInfo.nickName,
