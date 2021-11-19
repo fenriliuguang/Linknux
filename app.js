@@ -1,5 +1,5 @@
 // app.js
-
+const host = "http://192.168.1.3:8080";
 function setObj(res,i){
   var object = {
     id:0,
@@ -57,7 +57,7 @@ App({
         header:{
           Authorization: "Bearer " + app.globalData.token 
         },
-        url: 'http://localhost:8080/follow/get/post',
+        url: host + '/follow/get/post',
         data:{
           page:page,
           size:size,
@@ -83,7 +83,7 @@ App({
         header:{
           Authorization: "Bearer " + app.globalData.token 
         },
-        url: 'http://localhost:8080/index',
+        url: host + '/index',
         data:{
           page:page,
           size:size,
@@ -110,7 +110,7 @@ App({
         header:{
           Authorization: "Bearer " + app.globalData.token 
         },
-        url: 'http://localhost:8080/index',
+        url: host + '/index',
         data:{
           page:page,
           size:size,
@@ -139,7 +139,7 @@ App({
         header:{
           Authorization: "Bearer " + app.globalData.token 
         },
-        url: 'http://localhost:8080/rank',
+        url: host + '/rank',
         method:'GET',
         success(res){
           data.me = res.data.data.me;

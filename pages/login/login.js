@@ -55,7 +55,7 @@ Page({
                                             // app.globalData.unionid = r.data.unionid
                                             // app.globalData.openid = r.data.openid
                                             app.globalData.userInfo = this.data.userInfo;
-                                            app.globalData.token = this.data.token;
+                                            app.globalData.token = r.data.data.token;
 
                                             if(this.data.isshare){
                                                 app.globalData.roomid = this.data.roomid
