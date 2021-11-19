@@ -45,13 +45,18 @@ App({
     isLogin:false,
     unionid:null,
     openid:null,
+    token:'token'
   },
   resquest:{
     getFollow: function(page,size,order){
 
       var arr = [];
+      var app = getApp();
 
       wx.request({
+        header:{
+          Authorization: "Bearer " + app.globalData.token 
+        },
         url: 'http://localhost:8080/follow/get/post',
         data:{
           page:page,
@@ -72,8 +77,12 @@ App({
     getIndex: function(page,size,order){
 
       var arr = [];
+      var app = getApp();
 
       wx.request({
+        header:{
+          Authorization: "Bearer " + app.globalData.token 
+        },
         url: 'http://localhost:8080/index',
         data:{
           page:page,
@@ -95,8 +104,12 @@ App({
     getFenqu: function(page,size,order,label_id){
 
       var arr = [];
+      var app = getApp();
 
       wx.request({
+        header:{
+          Authorization: "Bearer " + app.globalData.token 
+        },
         url: 'http://localhost:8080/index',
         data:{
           page:page,
@@ -117,11 +130,15 @@ App({
       return arr;
     },
     getRank: function(){
+      var app = getApp();
       var data = {
         me:null,
         rank:null
       }
       wx.request({
+        header:{
+          Authorization: "Bearer " + app.globalData.token 
+        },
         url: 'http://localhost:8080/rank',
         method:'GET',
         success(res){

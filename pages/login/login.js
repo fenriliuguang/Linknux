@@ -8,7 +8,7 @@ Page({
         host : getApp().globalData.host,
         isdone: false,
         userInfo: null,
-        avatarUrl: getApp().globalData.host + "/static/image/wechat.png",
+        avatarUrl: "../../static/image/wechat.png",
         isLogin: false,
         isshare: false,
         roomid : ""
@@ -51,10 +51,11 @@ Page({
                                         success: (r) => {
                                             
                                             var app = getApp()
-                                            app.globalData.isLogin = true
-                                            app.globalData.unionid = r.data.unionid
-                                            app.globalData.openid = r.data.openid
-                                            app.globalData.userInfo = this.data.userInfo
+                                            app.globalData.isLogin = true;
+                                            // app.globalData.unionid = r.data.unionid
+                                            // app.globalData.openid = r.data.openid
+                                            app.globalData.userInfo = this.data.userInfo;
+                                            app.globalData.token = this.data.token;
 
                                             if(this.data.isshare){
                                                 app.globalData.roomid = this.data.roomid
