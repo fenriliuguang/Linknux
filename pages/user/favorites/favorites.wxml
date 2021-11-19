@@ -1,0 +1,21 @@
+<!--pages/user/favorites/favorites.wxml-->
+<view class="top">收藏夹</view>
+<view style="border-bottom: 3px solid #F8F8F8; width: 750rpx; height: 174rpx; display: block; box-sizing: border-box">
+<view class="title">标题</view>
+<view class="bottom" style="width: 750rpx; height: 79rpx; display: block; box-sizing: border-box">
+<text style="font-size: 10;">摘要</text>
+</view>
+<view style="width: 750rpx; height: 41rpx; display: block; box-sizing: border-box">
+    <image src="../../../static/icons/我的-线性-4.png"class="image"  style="position: relative; left: -6rpx;"></image>
+<text style="position: relative;top: -10rpx">name</text>
+<image src="../../../static/icons/眼睛.png" class="image">
+</image>
+<text style="position: relative; left: 260rpx; top: -10rpx">num</text>
+<image src="../../../static/icons/赞.png" class="image">
+</image>
+<text style="position: relative; left: 260rpx; top: -10rpx">num</text>
+<image src="../../../static/icons/已收藏.png" class="image">
+</image>
+<text style="position: relative; left: 260rpx; top: -10rpx">num</text>
+</view>
+</view>

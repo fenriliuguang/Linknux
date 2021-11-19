@@ -1,46 +1,45 @@
 {
-    "entryPagePath": "pages/login/login",
-    "pages": [
-        "pages/index/index",
-        "pages/logs/logs",
-        "pages/home/home",
-        "pages/help/help",
-        "pages/user/user",
-        "pages/login/login"
+  "entryPagePath": "pages/home/home",
+  "pages": [
+    "pages/home/home",
+    "pages/help/help",
+    "pages/user/user",
+    "pages/login/login",
+    "pages/document/document"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "backgroundColor": "",
+    "color": "",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "./static/icons/首页.png",
+        "iconPath": "./static/icons/首页.png",
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "./static/icons/灯泡.png",
+        "iconPath": "./static/icons/灯泡.png",
+        "pagePath": "pages/help/help",
+        "text": "帮助"
+      },
+      {
+        "selectedIconPath": "./static/icons/我的-线性-4.png",
+        "iconPath": "./static/icons/我的-线性-4.png",
+        "pagePath": "pages/user/user",
+        "text": "用户"
+      }
     ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "Weixin",
-        "navigationBarTextStyle": "black"
-    },
-    "style": "v2",
-    "sitemapLocation": "sitemap.json",
-    "tabBar": {
-        "backgroundColor": "",
-        "color": "",
-        "borderStyle": "white",
-        "list": [
-            {
-                "selectedIconPath": "./static/icons/首页.png",
-                "iconPath": "./static/icons/首页.png",
-                "pagePath": "pages/home/home",
-                "text": "首页"
-            },
-            {
-                "selectedIconPath": "./static/icons/灯泡.png",
-                "iconPath": "./static/icons/灯泡.png",
-                "pagePath": "pages/help/help",
-                "text": "帮助"
-            },
-            {
-                "selectedIconPath": "./static/icons/我的-线性-4.png",
-                "iconPath": "./static/icons/我的-线性-4.png",
-                "pagePath": "pages/user/user",
-                "text": "用户"
-            }
-        ],
-        "position": "bottom",
-        "selectedColor": "#00CD00"
-    }
+    "position": "bottom",
+    "selectedColor": "#00CD00"
+  }
 }

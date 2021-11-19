@@ -5,9 +5,28 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        avatarUrl: "../../static/image/wechat.png",
     },
-
+    favorites: function () {
+        wx.navigateTo({
+          url: './favorites/favorites'
+        })
+    },
+    contribution: function () {
+        wx.navigateTo({
+          url: './contribution/contribution'
+        })
+    },
+    history: function () {
+        wx.navigateTo({
+          url: './history/history'
+        })
+    },
+   fans: function () {
+        wx.navigateTo({
+          url: './fans/fans'
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
