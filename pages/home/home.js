@@ -11,90 +11,20 @@ Page({
             fenqu:false,
             dashen:false
         },
-        fenqu_page:[
-            {
-                id:0,
-                title:"标题",
-                word:"正文",
-                writer:"作者",
-                data:"2000年1月1日",
-                count:"100",
-            },
-           {
-                id:1,
-                title:"标题",
-                word:"正文",
-                writer:"作者",
-                data:"2000年1月1日",
-                count:"100",
-            },
-            {
-                id:2,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                writer:"作者",
-                count:"100",
-            },
-            {
-                id:3,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                writer:"作者",
-                count:"100",
-            },
-            {
-                id:4,
-                title:"标题",
-                word:"正文",
-                data:"2000年1月1日",
-                writer:"作者",
-                count:"100",
-            },
-        ],
-        guanzhu_page:[
-            {
-                id:0,
-                title:"标题1",
-                word:"正文",
-                zone:"分区",
-                read:"           XX阅读 XX评论",
-                data:"2021年11月11日",
-            },
-           {
-                id:1,
-                title:"标题2",
-                word:"正文",
-                zone:"分区",
-                read:"           XX阅读  XX评论",
-                data:"2021年11月11日",
-            },
-            {
-                id:2,
-                title:"标题3",
-                word:"正文",
-                zone:"分区",
-                read:"           XX阅读  XX评论",
-                data:"2021年11月11日",
-            },
-            {
-                id:3,
-                title:"标题4",
-                word:"正文",
-                zone:"分区",
-                read:"           XX阅读  XX评论",
-                data:"2021年11月11日",
-            },
-            {
-                id:4,
-                title:"标题5",
-                word:"正文",
-                zone:"分区",
-                read:"           XX阅读  XX评论",
-                data:"2021年11月11日",
-            },
-        ],
+        me:null,
+        fenqu_page:[],
+        guanzhu_page:[],
+        resou_page:[],
+        memberList: [],
+        list:[]
+    },
+
+    search:function(e){
+        console.log(e.detail.value);
+
+        wx.navigateTo({
+          url: '../result/result?search=' + e.detail.value,
+        })
     },
 
     ontab: function(e){
@@ -110,27 +40,105 @@ Page({
         this.setData({
             tab:tab
         })
+
+        var arr;
+        var me = {
+            pic_link : '',
+            username : '',
+            rank : null,
+            contribution : 0
+        }
+
+        switch(e.currentTarget.dataset.tab){
+            case "guanzhu":
+                arr = getApp().resquest.getFollow(1,10,"score");
+                setTimeout(()=>{
+                    this.setData({
+                        guanzhu_page:arr
+                    });
+                },200)
+                break;
+            case "resou":
+                arr = getApp().resquest.getIndex(1,10,"score");
+                setTimeout(()=>{
+                    this.setData({
+                        resou_page:arr
+                    });
+                },200)
+                break;
+            case "fenqu":
+                
+                break;
+
+            case "dashen":
+                var data = getApp().resquest.getRank();
+                setTimeout(()=>{
+                    console.log(data)
+                    me.contribution = data.me[0].contribution;
+                    me.pic_link = data.me[0].pic_link;
+                    me.username = data.me[0].username;
+                    me.rank = '未上榜';
+                    for(var i = 0;i<data.rank.length;i++){
+                        if(data.me[0].pic_link === data.rank[i].pic_link){
+                            me.rank = i+1;
+                            setTimeout(() => {
+                                this.setData({
+                                    me:me
+                                })
+                            },200)
+                        }
+                    }
+                    setTimeout(() => {
+                        this.setData({
+                            memberList:arr
+                        })
+                        this.setData({
+                            list:this.data.memberList.slice(3)
+                        })
+                    }, 200);
+                },300)
+                setTimeout(() => {
+                    arr = data.rank;
+                },200);
+                
+                break;
+        }
+    },
+
+    fenquOnTab: function(e){
+        var arr = getApp().resquest.getFenqu(1,10,"score",e.currentTarget.dataset.tab);
+
+        setTimeout(()=>{
+            this.setData({
+                fenqu_page:arr
+            });
+        },200)
+
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+         
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        var arr = getApp().resquest.getFollow(1,10,"score");
+        setTimeout(()=>{
+            this.setData({
+                guanzhu_page:arr
+            });
+        },200)
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
     },
 
     /**

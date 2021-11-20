@@ -1,58 +1,84 @@
-<!--pages/home/home.wxml-->
-<view>
+<view style="height:100%;">
     <view class ="head"  style="height: 99rpx; display: flex; ">
-        <view>
-            <input style=" width: 507rpx; height: 94rpx; "  placeholder="搜索"/>
+        <view class="Search">
+            <input bindconfirm="search" confirm-type="search" id="search" style="  height: 42px; "  placeholder="搜索"/>
         </view>
-        <view>
-            <image src="../../static/icons/添加-线性.png" style="width: 94rpx; height: 92rpx;"></image>
+        <view class="plus">
+            <image src="../../static/icons/plus.png" style="width: 35px; height: 35px;"></image>
         </view>
     </view>
     <view class="container">
-        <view data-tab="guanzhu" bindtap="ontab" style=" width: 98rpx; height: 52rpx;">关注</view>
-        <view data-tab="resou" bindtap="ontab" style="width: 98rpx; height: 52rpx;">热搜</view>
-        <view data-tab="fenqu" bindtap="ontab" style="width: 98rpx; height: 52rpx;">分区</view>
-        <view data-tab="dashen" bindtap="ontab" style="width: 98rpx; height: 52rpx;">大神榜</view>
+        <view class="{{tab.guanzhu?'choosen':''}}" data-tab="guanzhu" bindtap="ontab" style="text-align: center; width: 25%; height: 52rpx;">关注</view>
+        <view class="{{tab.resou?'choosen':''}}" data-tab="resou" bindtap="ontab" style="text-align: center;width: 25%; height: 52rpx;">热搜</view>
+        <view class="{{tab.fenqu?'choosen':''}}" data-tab="fenqu" bindtap="ontab" style="text-align: center;width: 25%; height: 52rpx;">分区</view>
+        <view class="{{tab.dashen?'choosen':''}}" data-tab="dashen" bindtap="ontab" style="text-align: center;width: 25%; height: 52rpx;">大神榜</view>
     </view>
 
 
-    <view>
+    <view style="height: calc(100% - 100px);">
     <!-- 陈宗航 -->
-        <view wx:if="{{tab.guanzhu}}">
-            <view class="guanzhu_page" wx:for="{{ guanzhu_page}}" wx:for-item="item">
-                <view class="guanzhu_box-title" >{{item.title}}</view>
-                <view class="guanzhu_box-word" >{{item.word}}</view>
-                <view class="buttun" >
-                    <view class="guanzhu_box-writer" >{{item.zone}}</view>
-                    <view class="guanzhu_box-data" ><text decode>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>{{item.read}}</view>
-                    <view class="guanzhu_box-count" >{{item.data}}</view>
+        <view style="border-top: #eee solid 1px;height: 100%;" wx:if="{{tab.guanzhu}}">
+            <scroll-view  scroll-y="true">
+                <view  wx:key="*this" class="_page" wx:for="{{ guanzhu_page}}" wx:for-item="item">
+                    <view class="_box-title" >{{item.title}}</view>
+                    <view class="_box-word" >{{item.word}}</view>
+                    <view class="buttun" >
+                        <!--用户头像图片-->
+                        <image  class="writer_picture" src="{{ item.avatarUrl }}"></image>
+                            <!--用户头像图片-->
+                        <view class="_box-writer" >{{item.writer}}</view>
+                        <view class="_box-data" >{{item.data}}</view>
+                        <image  class="eye_image" src="../../static/icons/eye.png"></image>
+                        <view class="_box-count" >{{item.count1}}</view>
+                        <image  class="eye_image" src="../../static/icons/like.png"></image>
+                        <view class="_box-count" >{{item.count2}}</view>
+                        <image  class="eye_image" src="../../static/icons/star.png"></image>
+                        <view class="_box-count" >{{item.count3}}</view>
                     </view>
-
-            </view>
+                </view>
+            </scroll-view>
         </view>
-        <view wx:if="{{tab.resou}}">
+        <view style="border-top: #eee solid 1px;height: 100%;" wx:if="{{tab.resou}}">
         <!-- 艾震文 -->
-            热搜内容 艾震文
+            <scroll-view style="height: 100%;" scroll-y="true">
+                <view  wx:key="*this" class="_page" wx:for="{{ resou_page}}" wx:for-item="item">
+                    <view class="_box-title" >{{item.title}}</view>
+                    <view class="_box-word" >{{item.word}}</view>
+                    <view class="buttun" >
+                        <!--用户头像图片-->
+                        <image  class="writer_picture" src="{{ item.avatarUrl }}"></image>
+                            <!--用户头像图片-->
+                        <view class="_box-writer" >{{item.writer}}</view>
+                        <view class="_box-data" >{{item.data}}</view>
+                        <image  class="eye_image" src="../../static/icons/eye.png"></image>
+                        <view class="_box-count" >{{item.count1}}</view>
+                        <image  class="eye_image" src="../../static/icons/like.png"></image>
+                        <view class="_box-count" >{{item.count2}}</view>
+                        <image  class="eye_image" src="../../static/icons/star.png"></image>
+                        <view class="_box-count" >{{item.count3}}</view>
+                    </view>
+                </view>
+            </scroll-view>
         </view>
         <view wx:if="{{tab.fenqu}}">
         <!-- 分区内容  zlr -->
             
             <view>
                 <view class="fenqu_box fenqu_box-1">
-                    <view class="fenqu_box-item">
+                    <view data-tab="1" bindtap="fenquOnTab" class="fenqu_box-item">
                         <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
                         <!-- 图片待之后选择应该插入的图片-->
                         <view class="fenqu_box-item-text">Ubuntu</view>
                     </view>
-                    <view class="fenqu_box-item">
+                    <view data-tab="2" bindtap="fenquOnTab" class="fenqu_box-item">
                         <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
                         <view class="fenqu_box-item-text">Mint</view>
                     </view>
-                    <view class="fenqu_box-item">
+                    <view data-tab="3" bindtap="fenquOnTab" class="fenqu_box-item">
                         <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
                         <view class="fenqu_box-item-text">Kali</view>
                     </view>
-                    <view class="fenqu_box-item">
+                    <view data-tab="4" bindtap="fenquOnTab" class="fenqu_box-item">
                         <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
                         <view class="fenqu_box-item-text">MX Linux</view>
                     </view>
@@ -83,68 +109,72 @@
                 </view>
             </view>
             <view>
-                <view class="_page" wx:for="{{ fenqu_page}}" wx:for-item="item">
-                    <view class="_box-title" >{{item.title}}</view>
-                    <view class="_box-word" >{{item.word}}</view>
-                    <view class="buttun" >
-                        <!--用户头像图片-->
-                        <image  class="writer_picture" src="../../static/icons/眼睛.png"></image>
-                        <!--用户头像图片-->
-                        <view class="_box-writer" >{{item.writer}}</view>
-                        <view class="_box-data" >{{item.data}}</view>
-                        <image  class="eye_image" src="../../static/icons/眼睛.png"></image>
-                        <view class="_box-count" >{{item.count}}</view>
+                <scroll-view class="scrollContainer" scroll-y="true">
+                    <view wx:key="*this" class="_page" wx:for="{{ fenqu_page}}" wx:for-item="item">
+                        <view class="_box-title" >{{item.title}}</view>
+                        <view class="_box-word" >{{item.word}}</view>
+                        <view class="buttun" >
+                                <!--用户头像图片-->
+                                <image  class="writer_picture" src="{{ item.avatarUrl }}"></image>
+                            <!--用户头像图片-->
+                                <view class="_box-writer" >{{item.writer}}</view>
+                                <view class="_box-data" >{{item.data}}</view>
+                                <image  class="eye_image" src="../../static/icons/eye.png"></image>
+                                <view class="_box-count" >{{item.count1}}</view>
+                                <image  class="eye_image" src="../../static/icons/like.png"></image>
+                                <view class="_box-count" >{{item.count2}}</view>
+                                <image  class="eye_image" src="../../static/icons/star.png"></image>
+                                <view class="_box-count" >{{item.count3}}</view>
+                        </view>
                     </view>
-
-                </view>
+                </scroll-view>
             </view>
         </view>
         <view wx:if="{{tab.dashen}}">
             <view class="rankArea" wx:if="{{tab.dashen}}">
             <!-- 总榜和月榜 -->
                 <view class="rankType">
-                    <view class="totalRank">总榜</view>
-                    <view class="monthRank">月榜</view>
+                    <view class="totalRank">排行榜</view>
                 </view>
                 <!-- 前三名显示区域 -->
                 <view class="topThree">
                     <view class="numberTwo">
                         <image class="crownSecond" src="../../static/icons/已收藏.png"></image>
-                        <image class="avatarImg" src="../../static/icons/我的-线性-4.png"></image>
-                        <text class="name">用户二</text>
+                        <image class="avatarImg" src="{{memberList[1].pic_link}}"></image>
+                        <text class="name">{{memberList[1].username}}</text>
                         <view class="contribution">
                             <image class="medal" src="../../static/icons/眼睛.png"></image>
-                            <text class="record">88888</text>
+                            <text class="record">{{memberList[1].contribution}}</text>
                         </view>
                     </view>
                     <view class="numberOne">
                         <image class="crownFirst" src="../../static/icons/已收藏.png"></image>
-                        <image class="avatarImg" src="../../static/icons/我的-线性-4.png"></image>
-                        <text class="name">用户一</text>
+                        <image class="avatarImg" src="{{memberList[0].pic_link}}"></image>
+                        <text class="name">{{memberList[0].username}}</text>
                         <view class="contribution">
                             <image class="medal" src="../../static/icons/眼睛.png"></image>
-                            <text class="record">99999</text>
+                            <text class="record">{{memberList[0].contribution}}</text>
                         </view>
                     </view>
                     <view class="numberThree">
                         <image class="crownThird" src="../../static/icons/已收藏.png"></image>
-                        <image class="avatarImg" src="../../static/icons/我的-线性-4.png"></image>
-                        <text class="name">用户三</text>
+                        <image class="avatarImg" src="{{memberList[2].pic_link}}"></image>
+                        <text class="name">{{memberList[2].username}}</text>
                         <view class="contribution">
                             <image class="medal" src="../../static/icons/眼睛.png"></image>
-                            <text class="record">77777</text>
+                            <text class="record">{{memberList[2].contribution}}</text>
                         </view>
                     </view>
                 </view>
                 <!-- 我的贡献区域 -->
                 <view class="myContainer">
                     <view class="myContribution">我的贡献</view>
-                    <image class="myAvatar" src="../../static/icons/我的-线性-4.png"></image>
-                    <text class="name">唐僧</text>
+                    <image class="myAvatar" src="{{me.pic_link}}"></image>
+                    <text class="name">{{me.username}}</text>
                     <text class="sum">累计贡献点数:</text>
-                    <text class="number">1900</text>
+                    <text class="number">{{me.contribution}}</text>
                     <image class="rankFlag" src="../../static/icons/已收藏.png"></image>
-                    <text class="myRank">第 1,999 名</text>
+                    <text class="myRank">第 {{me.rank}} 名</text>
                 </view>
                 <!-- 其它在榜人员区域 -->
                 <view class="otherRankContainer">
@@ -156,115 +186,11 @@
                     </view>
                     <!-- 在榜人员具体信息区域 -->
                     <scroll-view class="scrollContainer" scroll-y="true">
-                        <view class="memberItem">
-                            <text class="name">吕小布</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
-                        </view>
-                        <view class="memberItem">
-                            <text class="name">用户三</text>
-                            <text class="number">180000</text>
-                            <text class="rank">11111111</text>
+                        <view wx:key="id" class="memberItem" wx:for="{{list}}" wx:for-item="item"
+                        wx:for-index="index">
+                            <text class="name">{{item.username}}</text>
+                            <text class="number">{{item.contribution}}</text>
+                            <text class="rank">{{index + 4}}</text>
                         </view>
                     </scroll-view>
                 </view>

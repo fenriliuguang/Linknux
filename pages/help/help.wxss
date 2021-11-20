@@ -1,1 +1,96 @@
 /* pages/help/help.wxss */
+.searchArea {
+  display: flex;
+  margin-top: 10rpx;
+}
+.searchBorder {
+  position: relative;
+  display: flex;
+  width: 80%;
+  border: 2rpx solid #e69157;
+  border-radius: 10rpx;
+  margin-left: 30rpx;
+}
+.searchBorder .searchIcon {
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  margin: 12rpx 0;
+  left: 10rpx;
+}
+.searchBorder .weui-input {
+  position: absolute;
+  width: 500rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  flex: 1;
+  text-align: center;
+  font-size: 35rpx;
+  right: 30rpx;
+}
+.addMore {
+  width: 88rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.addMore .addImg {
+  width: 70rpx;
+  height: 70rpx;
+  line-height: 84rpx;
+  margin: 9rpx 10rpx;
+}
+/* 求助区域 */
+.helpArea {
+  width: 100%;
+  margin-top: 30rpx;
+}
+.helpScroll {
+  padding: 0 20rpx;
+}
+.helpItem {
+  display: flex;
+  position: relative;
+  height: 120rpx;
+  margin-bottom: 40rpx;
+}
+.helpItem .icon {
+  position: absolute;
+  width: 110rpx;
+  height: 120rpx;
+  margin: 5rpx 0;
+}
+.helpItem .content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 140rpx;
+  top: 10rpx;
+  height: 120rpx;
+}
+.content .detailContent {
+  width: 550rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 35rpx;
+}
+.content .translateType {
+  position: absolute;
+  font-size: 25rpx;
+  color: rgba(128, 128, 128, 1);
+  bottom: 10rpx;
+}
+.helpItem .check {
+  position: absolute;
+  width: 100rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  bottom: 0rpx;
+  right: 40rpx;
+  text-align: center;
+  vertical-align: center;
+  border: 1rpx solid #c0c0c0;
+  border-radius: 10rpx;
+}

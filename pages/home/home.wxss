@@ -1,90 +1,47 @@
-/* pages/home/home.wxss */
-
-.guanzhu_box {
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.guanzhu_box-item {
-  width: 142rpx;
-  height: 142rpx;
-  background-color: white;
-  margin: 5rpx;
-}
-.guanzhu_box-item .guanzhu_box-item-text{
-  width:142rpx;
-  height: 20rpx;
-  background-color: white;
-  font-size: 20rpx;
-  margin-top: 22rpx;
-  color: black;
-  text-align: center;
-}
-.guanzhu_page {
-  display: flex;
-  flex-wrap: wrap;
-  width: 700rpx;
-  height: 150rpx;
-  margin-top: 20rpx;
-  border-bottom: #eee solid 1px;
-  /*align-items: center;*/
-}
-.guanzhu_page .fenqu_box-title{
-  width: 750rpx;
-  height: 50rpx;
-  background-color: white;
-  font-size: 40rpx;
-  color: black;
-}
-.guanzhu_page .guanzhu_box-word{
-  width: 750rpx;
-  height: 60rpx;
-  background-color: white;
-  font-size: 30rpx;
-  margin-top: 20rpx;
-  color: black;
-}
-.guanzhu_page .buttun{
-  display: flex;
-  flex-direction: row;
-  height: 20rpx;
-  width: 750rpx;
-}
-.buttun .guanzhu_box-zone{
-  width: 100rpx;
-  height: 20rpx;
-  background-color: white;
-  font-size: 20rpx;
-  padding-left: 20rpx;
-  color: black;
-}
-.buttun .guanzhu_box-read{
-  width: 400rpx;
-  height: 20rpx;
-  background-color: white;
-  font-size: 20rpx;
-  color: black;
-}
-.buttun .guanzhu_box-data{
-  width: 400rpx;
-  height: 20rpx;
-  background-color: white;
-  font-size: 20rpx;
-  color: black;
-}
-
 .container{
+  margin: 10px 0;
+  font-size: 14px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content:space-around;
   box-sizing: border-box;
+  width: 100%;
 }
 
+page{
+  height: 100%;
+}
 
+.choosen{
+  position: relative;
+  color: #40CF68;
+}
+.choosen::after{
+    content:"";
+    position: absolute;
+    right: calc(50% - 40%);
+    bottom: 0;
+    width:80%;
+    height:1.5px;
+    background-color: #40CF68;
+}
+
+#search{
+  border: #E69157 solid 2rpx;
+  border-radius: 5rpx;
+  padding: 0 20rpx;
+}
+.Search{
+  margin-left:30rpx;
+  width: 70%;
+}
 .head{
-  padding:0 100rpx;
+  padding:0;
+}
+.plus{
+margin-left: 40rpx;
+padding-top:10rpx ;
 }
 
 /*zlr*/
@@ -120,66 +77,66 @@
 ._page {
   display: flex;
   flex-wrap: wrap;
-  width: 700rpx;
-  height: 150rpx;
-  margin-top: 20rpx;
+  padding: 5px 30px;
   border-bottom: #eee solid 1px;
   /*align-items: center;*/
 }
 ._page ._box-title{
-  width: 750rpx;
+  font-weight: 600;
+  width: 100%;
   height: 40rpx;
   background-color: white;
-  font-size: 40rpx;
+  font-size: 18px;
   color: black;
 }
 ._page ._box-word{
-  width: 750rpx;
+  width: 100%;
   height: 60rpx;
   background-color: white;
-  font-size: 30rpx;
+  font-size: 14px;
+  color: #BDBDBD;
   margin-top: 20rpx;
-  color: black;
 }
 
 ._page .buttun{
   display: flex;
+  height: 25px;
+  font-size: 12px;
+  line-height: 12px;
   flex-direction: row;
-  height: 20rpx;
-  width: 750rpx;
+  align-items: flex-end;
+  width: 100%;
 }
 .buttun .writer_picture{
-  width: 20rpx;
-  height: 20rpx;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
   margin-right: 10rpx;
 }
 .buttun ._box-writer{
   width: 100rpx;
-  height: 20rpx;
-  background-color: white;
+  line-height: 16px;
   font-size: 20rpx;
+  background-color: white;
   padding-left: 20rpx;
-  color: black;
 }
 .buttun ._box-data{
-  width: 200rpx;
-  height: 20rpx;
-  background-color: white;
+  width: 30%;
   font-size: 20rpx;
-  color: black;
+  line-height: 16px;
+  text-align: center;
+  background-color: white;
 }
 .buttun .eye_image{
-  width: 20rpx;
-  height: 20rpx;
-  margin-left: 100rpx;
-  margin-right: 35rpx;
+  width: 17px;
+  height: 17px;
 }
 .buttun ._box-count{
-  width: 100rpx;
-  height: 20rpx;
+  width: 30px;
+  line-height: 16px;
+  text-align: center;
+  margin-right: 4px;
   background-color: white;
-  font-size: 20rpx;
-  color: black;
 }
 /*zlr*/
 .searchArea {
@@ -188,7 +145,7 @@
 }
 .searchBorder {
   width: 80%;
-  border: 2rpx solid #e69157;
+  border: 1rpx solid #e69157;
   border-radius: 10rpx;
   margin-left: 30rpx;
 }
@@ -237,12 +194,12 @@
   margin: auto;
 }
 .rankType .totalRank {
-  width: 50%;
+  width: 100%;
   height: 88rpx;
   line-height: 88rpx;
   text-align: center;
-  border-radius: 30rpx 0 0 30rpx;
-  background-color: #faff9f;
+  border-radius: 30rpx;
+  background-color: #9affa5;
   border: solid 2rpx #e69157;
 }
 .rankType .monthRank {
@@ -280,6 +237,7 @@
 .numberTwo .avatarImg {
   width: 110rpx;
   height: 110rpx;
+  border-radius: 50%;
 }
 .numberTwo .name {
   font-size: 28rpx;
@@ -301,6 +259,7 @@
 .numberOne .avatarImg {
   width: 130rpx;
   height: 130rpx;
+  border-radius: 50%;
 }
 .numberOne .name {
   font-size: 28rpx;
@@ -323,6 +282,7 @@
 .numberThree .avatarImg {
   width: 110rpx;
   height: 110rpx;
+  border-radius: 50%;
 }
 .numberThree .name {
   color: #d8ae74;
@@ -367,6 +327,7 @@
 .myContainer .myAvatar {
   width: 80rpx;
   height: 80rpx;
+  border-radius: 50%;
 }
 .myContainer .name {
   font-size: 30rpx;

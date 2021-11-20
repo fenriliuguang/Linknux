@@ -1,11 +1,11 @@
-// pages/help/help.js
+// pages/user/fans/fans.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        'helpList': [], // 求助数据列表 
+
     },
 
     /**

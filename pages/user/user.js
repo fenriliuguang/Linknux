@@ -5,28 +5,28 @@ Page({
      * 页面的初始数据
      */
     data: {
-        history_page:[
-            {
-                id:0,
-                text:"absdasdas",
-                date:"2000.1.1",
-                time:"14:20",
-            },
-            {
-                id:1,
-                text:"absasdwadasdasdas",
-                date:"2000.10.1",
-                time:"20:10",
-            },
-            {
-                id:2,
-                text:"adasdasdzsdas",
-                date:"2020.11.11",
-                time:"7:01",
-            },
-        ]
+        avatarUrl: "../../static/image/wechat.png",
     },
-
+    favorites: function () {
+        wx.navigateTo({
+          url: './favorites/favorites'
+        })
+    },
+    contribution: function () {
+        wx.navigateTo({
+          url: './contribution/contribution'
+        })
+    },
+    history: function () {
+        wx.navigateTo({
+          url: './history/history'
+        })
+    },
+   fans: function () {
+        wx.navigateTo({
+          url: './fans/fans'
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

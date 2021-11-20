@@ -1,59 +1,32 @@
 /* pages/user/user.wxss */
-.history_top {
-    background-color: white;
+.type{
+    color: #000000;
+    position: fixed;
+    bottom: 55px;
+    background-color: #FFFFFF;
+    display: flex-end;
+    border-bottom:2px solid #FFFFFF;
+    margin-left: 0px;
+    padding-right: 130px;
+}
+.text{
+    width: max-content;
+    font-size:30px;
+    box-sizing:border-box;
+    text-align: center;
+    border-bottom:2px solid #F8F8F8;
+}
+.button{
+    color: #000000;
+    background-color: #FFFFFF;
+    border-bottom:2px solid #F8F8F8;
+    box-sizing:border-box;
+    font-size: large;
+}
+.container {
     display: flex;
-    flex-direction: row;
-    width: 750rpx;
-    height: 100rpx;
-}
-.history_top .back_picture{
-    width: 80rpx;
-    height: 80rpx;
-    margin-left: 10rpx;
-    margin-top: 10rpx;
-}
-.history_top .title{
-    width: 550rpx;
-    height: 100rpx;
-    background-color: white;
-    font-size: 80rpx;
-    margin-left: 100rpx;
-    color: black;
-}
-.history_page{
-    display: flex;
-    flex-wrap: wrap;
-    width: 750rpx;
-    height: 80rpx;
-    margin-top: 5rpx;
-    padding-top:10rpx;
-    padding-bottom:10rpx;
-    border-bottom: #eee solid 1px;
-    /*align-items: center;*/
-}
-.history_page .text{
-    width: 350rpx;
-    height: 60rpx;
-    background-color: white;
-    font-size: 40rpx;
-    margin-top: 20rpx;
-    color: black;
-}
-.history_page .date{
-    width: 200rpx;
-    height: 60rpx;
-    margin-top: 20rpx;
-    background-color: white;
-    margin-left: 50rpx;
-    font-size: 30rpx;
-    color: black;
-}
-.history_page .time{
-    width: 100rpx;
-    height: 60rpx;
-    margin-top: 20rpx;
-    background-color: white;
-    font-size: 30rpx;
-    margin-left: 20rpx;
-    color: black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 1400rpx;
 }

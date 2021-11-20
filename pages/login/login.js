@@ -8,7 +8,7 @@ Page({
         host : getApp().globalData.host,
         isdone: false,
         userInfo: null,
-        avatarUrl: getApp().globalData.host + "/static/image/wechat.png",
+        avatarUrl: "../../static/image/wechat.png",
         isLogin: false,
         isshare: false,
         roomid : ""
@@ -42,29 +42,34 @@ Page({
                                 if (res.code) {
                                     wx.request({
                                         // 登录接口
-                                        url: 'http://localhost:8080/login',
+                                        url: 'http://192.168.43.221:8080/login',
                                         data: {
-                                            code: res.code
+                                            code: res.code,
+                                            username: this.data.userInfo.nickName,
+                                            pic_link: this.data.avatarUrl
                                         },
                                         success: (r) => {
                                             
                                             var app = getApp()
-                                            app.globalData.isLogin = true
-                                            app.globalData.unionid = r.data.unionid
-                                            app.globalData.openid = r.data.openid
-                                            app.globalData.userInfo = this.data.userInfo
+                                            app.globalData.isLogin = true;
+                                            // app.globalData.unionid = r.data.unionid
+                                            // app.globalData.openid = r.data.openid
+                                            app.globalData.userInfo = this.data.userInfo;
+                                            app.globalData.token = r.data.data.token;
 
                                             if(this.data.isshare){
                                                 app.globalData.roomid = this.data.roomid
-                                                wx.redirectTo({
+                                                wx.switchTab({
                                                   url: '/pages/room/room',
                                                 })
                                             }else {
-                                                wx.redirectTo({
+                                                wx.switchTab({
                                                     url: '/pages/home/home',
                                                 })
                                             }
-                                        }
+                                        },
+                                        method:"POST",
+                                        dataType:"json"
                                     })
                                 }
                             }
