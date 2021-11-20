@@ -1,0 +1,15 @@
+<view style="height:100%;">
+    <view class="title">
+        <image class="back_picture" src="../../static/icons/返回.png"></image>
+        <view class="title_text">写翻译</view>
+    </view>
+    <view class="input_box1">
+        <view class="input_title_1">标题</view>
+        <textarea class="input_1" focus placeholder="请输入翻译的文章标题"/>
+    </view>
+    <view class="input_box2">
+        <view class="input_title_2">文章链接</view>
+        <textarea class="input_2" focus placeholder="请输入翻译的文章链接"/>
+    </view>
+    <view class="submit_button">发布</view>
+</view>
