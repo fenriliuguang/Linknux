@@ -1,0 +1,29 @@
+/* pages/user/contribution/contribution.wxss */
+page{
+    width:100%;
+    height: 100%;
+}
+.check{
+    width: max-content;
+    z-index: 999999;
+    position: absolute; 
+    width: 100%;
+    background-color: #fcfcfcfa;
+}
+.title{
+    font-size:240% ;
+    text-align: center;
+    position: relative;
+    z-index: 999999;
+}
+.wechat{
+    position: relative; width: 60rpx; height: 60rpx;
+    z-index: 999999;
+}
+.gz{
+    background-color:#FFFF00 ;
+    position:absolute;
+    right:5%;
+    bottom:8%;
+    z-index: 999999;
+}

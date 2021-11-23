@@ -1,3 +1,4 @@
+
 // pages/user/user.js
 Page({
 
@@ -5,7 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        avatarUrl: getApp().globalData.host + "/static/image/wechat.png",
+        avatarUrl: "../../static/image/wechat.png",
     },
     favorites: function () {
         wx.navigateTo({

@@ -1,2 +1,15 @@
-<!--pages/user/contribution/contribution.wxml-->
-<text>pages/user/contribution/contribution.wxml</text>
+
+<!-->pages/user/contribution/contribution.wxml-->
+
+<cover-view class="check">
+<web-view src="https://www.csdn.net/"></web-view>
+<cover-view class="title">
+title
+</cover-view>
+<cover-image src="../../../static/image/wechat.png" class="wechat" ></cover-image>
+<cover-view style="position: absolute;left: 10%;bottom:10%;">name</cover-view>
+<cover-view style="left:20%;position: absolute;bottom: 10%;left:30%;">date</cover-view>
+
+<button class="gz" style="width: 100rpx; height: 65rpx; display: block; box-sizing: border-box;">关注</button>
+
+</cover-view>

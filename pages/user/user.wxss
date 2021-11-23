@@ -1,3 +1,4 @@
+
 /* pages/user/user.wxss */
 .type{
     color: #000000;
@@ -29,4 +30,5 @@
     align-items: center;
     justify-content: space-around;
     height: 1400rpx;
+
 }
