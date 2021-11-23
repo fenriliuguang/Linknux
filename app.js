@@ -1,5 +1,5 @@
 // app.js
-const host = "http://192.168.43.221:8080";
+const host = "http://192.168.1.5:8080";
 function setObj(res,i){
   var object = {
     id:0,
@@ -15,8 +15,12 @@ function setObj(res,i){
   };
   var d = new Date(res.data.data[i].create_time)
   object.id = res.data.data[i].post_id;
-  object.title = res.data.data[i].title;
-  object.word = res.data.data[i].content;
+  if(res.data.data[i].title.length > 20){
+    object.title = res.data.data[i].title.slice(0,19)+ "...";
+  }else {
+    object.title = res.data.data[i].title;
+  }
+  object.word = res.data.data[i].content.slice(0,30) + "...";
   object.writer = res.data.data[i].author_name;
 
   object.data = d.getFullYear() + "年" + d.getMonth() + "月" +d.getDate() + "日";

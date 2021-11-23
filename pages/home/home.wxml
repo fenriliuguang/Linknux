@@ -66,44 +66,44 @@
             <view>
                 <view class="fenqu_box fenqu_box-1">
                     <view data-tab="1" bindtap="fenquOnTab" class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
+                        <image class="fenqu_box-item-picture" src="../../static/image/Ubuntu.png"></image>
                         <!-- 图片待之后选择应该插入的图片-->
                         <view class="fenqu_box-item-text">Ubuntu</view>
                     </view>
                     <view data-tab="2" bindtap="fenquOnTab" class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
+                        <image class="fenqu_box-item-picture" src="../../static/image/Mint.png"></image>
                         <view class="fenqu_box-item-text">Mint</view>
                     </view>
                     <view data-tab="3" bindtap="fenquOnTab" class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
+                        <image class="fenqu_box-item-picture" src="../../static/image/Kali.png"></image>
                         <view class="fenqu_box-item-text">Kali</view>
                     </view>
                     <view data-tab="4" bindtap="fenquOnTab" class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
+                        <image class="fenqu_box-item-picture" src="../../static/image/MX_Linux.png"></image>
                         <view class="fenqu_box-item-text">MX Linux</view>
                     </view>
                     <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
+                        <image class="fenqu_box-item-picture" src="../../static/image/Pop!_OS.png"></image>
                         <view class="fenqu_box-item-text">Pop!_OS</view>
                     </view>
                     <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
+                        <image class="fenqu_box-item-picture" src="../../static/image/Solus.png"></image>
                         <view class="fenqu_box-item-text">Solus</view>
                     </view>
                     <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
+                        <image class="fenqu_box-item-picture" src="../../static/image/Manjaro.png"></image>
                         <view class="fenqu_box-item-text">Manjaro</view>
                     </view>
                     <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
+                        <image class="fenqu_box-item-picture" src="../../static/image/elementary_OS.png"></image>
                         <view class="fenqu_box-item-text">elementary OS</view>
                     </view>
                     <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
+                        <image class="fenqu_box-item-picture" src="../../static/image/Tail.png"></image>
                         <view class="fenqu_box-item-text">Tali</view>
                     </view> 
                     <view class="fenqu_box-item">
-                        <image class="fenqu_box-item-picture" src="../../static/icons/已收藏.png"></image>
+                        <image class="fenqu_box-item-picture" src="../../static/image/more.png"></image>
                         <view class="fenqu_box-item-text">查看更多</view>
                     </view>
                 </view>
@@ -139,29 +139,29 @@
                 <!-- 前三名显示区域 -->
                 <view class="topThree">
                     <view class="numberTwo">
-                        <image class="crownSecond" src="../../static/icons/已收藏.png"></image>
+                        <image class="crownSecond" src="../../static/icons/Ag_crown.png"></image>
                         <image class="avatarImg" src="{{memberList[1].pic_link}}"></image>
                         <text class="name">{{memberList[1].username}}</text>
                         <view class="contribution">
-                            <image class="medal" src="../../static/icons/眼睛.png"></image>
+                            <image class="medal" src="../../static/icons/Ag_cup.png"></image>
                             <text class="record">{{memberList[1].contribution}}</text>
                         </view>
                     </view>
                     <view class="numberOne">
-                        <image class="crownFirst" src="../../static/icons/已收藏.png"></image>
+                        <image class="crownFirst" src="../../static/icons/Au_crown.png"></image>
                         <image class="avatarImg" src="{{memberList[0].pic_link}}"></image>
                         <text class="name">{{memberList[0].username}}</text>
                         <view class="contribution">
-                            <image class="medal" src="../../static/icons/眼睛.png"></image>
+                            <image class="medal" src="../../static/icons/Au_cup.png"></image>
                             <text class="record">{{memberList[0].contribution}}</text>
                         </view>
                     </view>
                     <view class="numberThree">
-                        <image class="crownThird" src="../../static/icons/已收藏.png"></image>
+                        <image class="crownThird" src="../../static/icons/Cu_crown.png"></image>
                         <image class="avatarImg" src="{{memberList[2].pic_link}}"></image>
                         <text class="name">{{memberList[2].username}}</text>
                         <view class="contribution">
-                            <image class="medal" src="../../static/icons/眼睛.png"></image>
+                            <image class="medal" src="../../static/icons/Cu_cup.png"></image>
                             <text class="record">{{memberList[2].contribution}}</text>
                         </view>
                     </view>
@@ -173,7 +173,7 @@
                     <text class="name">{{me.username}}</text>
                     <text class="sum">累计贡献点数:</text>
                     <text class="number">{{me.contribution}}</text>
-                    <image class="rankFlag" src="../../static/icons/已收藏.png"></image>
+                    <image class="rankFlag" src="../../static/icons/star2.png"></image>
                     <text class="myRank">第 {{me.rank}} 名</text>
                 </view>
                 <!-- 其它在榜人员区域 -->
