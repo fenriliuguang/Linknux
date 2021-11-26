@@ -26,8 +26,8 @@ function setObj(res,i){
   }
   object.word = res.data.data[i].content.slice(0,30) + "...";
   object.writer = res.data.data[i].author_name;
-
-  object.data = d.getFullYear() + "年" + d.getMonth() + "月" +d.getDate() + "日";
+  var a = d.getMonth()+1
+  object.data = d.getFullYear() + "年" + a + "月" +d.getDate() + "日";
   object.avatarUrl = res.data.data[i].pic_link;
   object.count1 = res.data.data[i].viewd_num;
   object.count2 = res.data.data[i].vote_num;
