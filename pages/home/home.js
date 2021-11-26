@@ -16,7 +16,61 @@ Page({
         guanzhu_page:[],
         resou_page:[],
         memberList: [],
-        list:[]
+        list:[],
+        loadFlag:false,
+        loading:false,
+        fenqu_:1,
+        guanzhu_:1,
+        resou_:1
+    },
+    toDoc :function(e){
+        let data = JSON.stringify(e.currentTarget.dataset.doc)
+        console.log(e.currentTarget.dataset.doc)
+        wx.setStorage({
+            key:'doc',
+            data:data
+        })
+        wx.navigateTo({
+          url: '../document/document',
+        })
+    },
+
+    nextPage: function(e){
+        if(this.data.loadFlag)return;
+        this.setData({
+            loadFlag:true,
+            loading:true
+        })
+        var arr = this.data[e.currentTarget.dataset.page + 'page'];
+        var arr2 = getApp().resquest[e.currentTarget.dataset.request](
+            this.data[e.currentTarget.dataset.page] + 1,10,"score")
+        
+        setTimeout(() => {
+            console.log(arr2);
+            if(arr2.length == 0){
+                this.setData({
+                    loading:false,
+                    loadFlag:false,
+                })
+                return;
+            }
+            arr.push.apply(arr,arr2);
+            console.log(arr);
+
+            this.setData({
+                [e.currentTarget.dataset.page + 'page']:arr,
+                loading:false,
+                loadFlag:false,
+                [e.currentTarget.dataset.page]:this.data[e.currentTarget.dataset.page] + 1
+            })
+        },200)
+        console.log("loading...")
+    },
+
+    plus: function(){
+        wx.navigateTo({
+          url: '../write/write?type=0',
+        })
     },
 
     search:function(e){
@@ -54,6 +108,7 @@ Page({
                 arr = getApp().resquest.getFollow(1,10,"score");
                 setTimeout(()=>{
                     this.setData({
+                        guanzhu_index:1,
                         guanzhu_page:arr
                     });
                 },200)
@@ -62,6 +117,7 @@ Page({
                 arr = getApp().resquest.getIndex(1,10,"score");
                 setTimeout(()=>{
                     this.setData({
+                        resou_index:1,
                         resou_page:arr
                     });
                 },200)

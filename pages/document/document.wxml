@@ -1,12 +1,20 @@
 <!--pages/document/document.wxml-->
-<view>
-  <view>
-    // title
-    头像
+<view style="height: 100%;">
+  <view class="check">
+    <view class="title">{{title}}</view>
+    <view class="detail">
+      <view class="user">
+        <image src="{{avatarUrl}}" class="wechat" ></image>
+        <view class="name">{{writer}}</view>
+      </view>
+      <view class="date">{{data}}</view>
+      <wiew class="gz">关注</wiew>
+    </view>
   </view>
-  <view>
-    <web-view src="https://blog.csdn.net/u012932876/article/details/121370284?utm_medium=distribute.pc_category.none-task-blog-hot-1.nonecase&depth_1-utm_source=distribute.pc_category.none-task-blog-hot-1.nonecase">
-      
-    </web-view>
+  <view style="height: calc(100% - 150px);">
+    <scroll-view scroll-y="true" style="height: 100%;">
+      <towxml nodes="{{a}}" />
+    </scroll-view>
   </view>
+  
 </view>

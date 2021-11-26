@@ -11,10 +11,14 @@ function setObj(res,i){
     count1:100,        
     count2:200,
     count3:300,
-    link:""
+    link:"",
+    t:"",
+    c:""
   };
   var d = new Date(res.data.data[i].create_time)
   object.id = res.data.data[i].post_id;
+  object.t = res.data.data[i].title;
+  object.c = res.data.data[i].content;
   if(res.data.data[i].title.length > 20){
     object.title = res.data.data[i].title.slice(0,19)+ "...";
   }else {
@@ -44,6 +48,7 @@ App({
       }
     })
   },
+  towxml:require('/towxml/index'),
   globalData: {
     userInfo: null,
     isLogin:false,
@@ -70,6 +75,7 @@ App({
         dataType:"json",
         method:"GET",
         success(res){
+          if(res.data.data == null)return;
           for(var i = 0;i<res.data.data.length;i++){
             arr.push(setObj(res,i));
           }
@@ -97,6 +103,7 @@ App({
         method:"GET",
         success(res){
           console.log(res);
+          if(res.data.data == null)return;
           for(var i = 0;i<res.data.data.length;i++){
             arr.push(setObj(res,i));
           }
@@ -171,6 +178,39 @@ App({
       });
       
       return arr;
+    },
+    add: function(p){
+      wx.request({
+        url: host+'/view/add',
+        header:{
+          Authorization: "Bearer " + getApp().globalData.token 
+        },
+        method:"PUT",
+        data:{
+          post_id:p
+        },
+        dataType:"json"
+      })
+    },
+    post:function (params) {
+      var code = 0;
+      wx.request({
+        url: host+'/post',
+        header:{
+          Authorization: "Bearer " + getApp().globalData.token 
+        },
+        data:{
+          title:params.title,
+          content:params.content,
+          label_id:params.label_id
+        },
+        method:"POST",
+        dataType:"json",
+        success(res){
+          code = res.data.code;
+        }
+      })
+      return code;
     }
   }
 })

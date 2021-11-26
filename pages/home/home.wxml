@@ -4,7 +4,7 @@
             <input bindconfirm="search" confirm-type="search" id="search" style="  height: 42px; "  placeholder="搜索"/>
         </view>
         <view class="plus">
-            <image src="../../static/icons/plus.png" style="width: 35px; height: 35px;"></image>
+            <image bindtap="plus" src="../../static/icons/plus.png" style="width: 35px; height: 35px;"></image>
         </view>
     </view>
     <view class="container">
@@ -18,8 +18,14 @@
     <view style="height: calc(100% - 100px);">
     <!-- 陈宗航 -->
         <view style="border-top: #eee solid 1px;height: 100%;" wx:if="{{tab.guanzhu}}">
-            <scroll-view  scroll-y="true">
-                <view  wx:key="*this" class="_page" wx:for="{{ guanzhu_page}}" wx:for-item="item">
+            <scroll-view 
+            data-request="getFollow"
+            data-page="guanzhu_"
+            style="height: 100%;" 
+            scroll-y="true"
+            enhanced="true"
+            bindscrolltolower="nextPage">
+                <view wx:key="*this" class="_page" wx:for="{{ guanzhu_page}}" wx:for-item="item" bindtap="toDoc" data-doc="{{item}}">
                     <view class="_box-title" >{{item.title}}</view>
                     <view class="_box-word" >{{item.word}}</view>
                     <view class="buttun" >
@@ -36,12 +42,21 @@
                         <view class="_box-count" >{{item.count3}}</view>
                     </view>
                 </view>
+                <view wx:if="{{loading}}">
+                    加载中 。。。
+                </view>
             </scroll-view>
         </view>
         <view style="border-top: #eee solid 1px;height: 100%;" wx:if="{{tab.resou}}">
         <!-- 艾震文 -->
-            <scroll-view style="height: 100%;" scroll-y="true">
-                <view  wx:key="*this" class="_page" wx:for="{{ resou_page}}" wx:for-item="item">
+            <scroll-view
+            data-request="getIndex"
+            data-page="resou_"
+            style="height: 100%;" 
+            scroll-y="true"
+            enhanced="true"
+            bindscrolltolower="nextPage">
+                <view  wx:key="*this" class="_page" wx:for="{{ resou_page}}" wx:for-item="item" bindtap="toDoc" data-doc="{{item}}">
                     <view class="_box-title" >{{item.title}}</view>
                     <view class="_box-word" >{{item.word}}</view>
                     <view class="buttun" >
@@ -57,6 +72,9 @@
                         <image  class="eye_image" src="../../static/icons/star.png"></image>
                         <view class="_box-count" >{{item.count3}}</view>
                     </view>
+                </view>
+                <view wx:if="{{loading}}">
+                    加载中 。。。
                 </view>
             </scroll-view>
         </view>
@@ -110,7 +128,7 @@
             </view>
             <view>
                 <scroll-view class="scrollContainer" scroll-y="true">
-                    <view wx:key="*this" class="_page" wx:for="{{ fenqu_page}}" wx:for-item="item">
+                    <view wx:key="*this" class="_page" wx:for="{{ fenqu_page}}" wx:for-item="item" bindtap="toDoc" data-doc="{{item}}">
                         <view class="_box-title" >{{item.title}}</view>
                         <view class="_box-word" >{{item.word}}</view>
                         <view class="buttun" >
