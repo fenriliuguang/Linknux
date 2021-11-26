@@ -5,9 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        looknum=[1000];
-        likenum=[500];
-        starnum=[100];
+        text1:"1000"
+
     },
 
     /**

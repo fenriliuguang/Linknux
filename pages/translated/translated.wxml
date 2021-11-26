@@ -1,21 +1,25 @@
 <!--pages/translated/translated.wxml-->
 <view class="class">
     
+     
+     <view class="three" style="width: 747rpx; height: 176rpx;">
      <view class="file">
-            <image src="../../static/icons/头像.png" style="width: 170rpx; height: 170rpx;"></image>
+            <image src="../../static/icons/头像.png" style="width: 66px; height: 87px;"></image>
      </view>
-     <view class="three">
-        <view class="eye">
-              <image src="../../static/icons/眼睛.png" style="width: 40rpx;height: 40rpx;"></image>
-         </view>
-         <text>{{looknum}}</text>
-         <view class="like">
-              <image src="../../static/icons/赞.png" style="width: 40rpx;height: 40rpx;"></image>
+     <view class="box">
+          <view class="eye">
+                <image src="../../static/icons/眼睛.png" style="width: 17px;height: 17px;"></image>
           </view>
-          <text>{{likenum}}</text>
-         <view class="star">
-                <image src="../../static/icons/收藏.png" style="width: 40rpx;height: 40rpx;"></image>
-         </view>
-         <text>{{starnum}}</text>
+             <view class="text" style="width:21px;height: 17px;">{{text1}}</view>
+           <view class="like">
+                   <image src="../../static/icons/赞.png" style="width: 17px;height: 17px;"></image>
+            </view>
+             <view  class="text" style="width:21px;height: 17px;">{{text1}}</view>
+            <view class="star">
+                     <image src="../../static/icons/收藏.png" style="width: 17px;height: 17px;"></image>
+           </view>
+            <view  class="text"style="width:21px;height: 17px;">{{text1}}</view>
+     </view>
+        
      </view>
 </view>

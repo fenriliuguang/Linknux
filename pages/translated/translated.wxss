@@ -2,16 +2,34 @@
 .three{
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: flex-end;
-    box-sizing: border-box;
+    padding-top: 20rpx;
+}
+.file{
+    padding-right: 299rpx;
 }
 .eye{
-    margin-right: 90rpx;
+    margin-right: 10rpx;
+    padding-top: 61px;
   }
 .like{
-    margin-right: 80rpx;
+    margin-right: 10rpx;
+    padding-top: 61px;
 }
 .star{
-    margin-right: 70rpx;
+    margin-right: 10rpx;
+    padding-top: 61px;
+}
+.box{
+    display: flex;
+    flex-direction: row;
+    align-items:flex-end;
+    justify-content: flex-end;
+}
+
+.text{
+    font-size: 12px;
+    margin-left: 2px;
+    margin-right: 10px;
+    padding-top: 61px;
 }
