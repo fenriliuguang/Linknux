@@ -32,14 +32,14 @@ Page({
         var code;
         if(this.data.type == 0){
             code = getApp().resquest.post({
-                label_id:this.data.index+1,
+                label_id:parseInt(this.data.index)+1,
                 title:this.data.title,
                 content:this.data.content
             })
         }
         setTimeout(() => {
-            if(code == 1000)wx.navigateBack();
-        }, 200);
+            wx.navigateBack();
+        }, 500);
         
     },
 
