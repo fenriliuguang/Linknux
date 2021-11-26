@@ -14,7 +14,8 @@ Page({
     a_id:"",
     isGuanzhu:false,
     isLike:false,
-    isStar:false
+    isStar:false,
+    load:false
   },
 
   /**
@@ -64,14 +65,27 @@ Page({
 
   dz:function(){
     let point = '';
+    if(this.data.load)return
     if(this.data.a_id == getApp().globalData.openid)return;
+    this.setData({
+      load:true
+    })
     point = this.data.isLike?"-1":"1";
     getApp().resquest.like(this.data.post_id,point);
-    this.setStarAndLike();
+    setTimeout(() => {
+      this.setStarAndLike();
+      this.setData({
+        load:false
+      })
+    }, 1000);
   },
   
   sc:function(){
+    if(this.data.load)return
     if(this.data.a_id == getApp().globalData.openid)return;
+    this.setData({
+      load:true
+    })
     if(this.data.isStar){
       getApp().resquest.cancelCollect(this.data.post_id);
     }else{
@@ -79,6 +93,9 @@ Page({
     }
     setTimeout(() => {
       this.setStarAndLike();
+      this.setData({
+        load:false
+      })
     }, 1000);
   },
 
