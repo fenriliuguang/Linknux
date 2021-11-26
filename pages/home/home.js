@@ -108,7 +108,7 @@ Page({
                 arr = getApp().resquest.getFollow(1,10,"score");
                 setTimeout(()=>{
                     this.setData({
-                        guanzhu_index:1,
+                        guanzhu_:1,
                         guanzhu_page:arr
                     });
                 },200)
@@ -117,7 +117,7 @@ Page({
                 arr = getApp().resquest.getIndex(1,10,"score");
                 setTimeout(()=>{
                     this.setData({
-                        resou_index:1,
+                        resou_:1,
                         resou_page:arr
                     });
                 },200)

@@ -1,5 +1,9 @@
 <!--pages/document/document.wxml-->
 <view style="height: 100%;">
+  <view class="like_box">
+    <image bindtap="dz" src="../../static/icons/{{isLike?'like2':'like'}}.png"></image>
+    <image bindtap="sc" src="../../static/icons/{{isStar?'star2':'star'}}.png"></image>
+  </view>
   <view class="check">
     <view class="title">{{title}}</view>
     <view class="detail">
@@ -8,7 +12,7 @@
         <view class="name">{{writer}}</view>
       </view>
       <view class="date">{{data}}</view>
-      <wiew class="gz">关注</wiew>
+      <view bindtap="gz" class="{{isGuanzhu?'gz dg':'gz g'}}">{{isGuanzhu?"取关":"关注"}}</view>
     </view>
   </view>
   <view style="height: calc(100% - 150px);">

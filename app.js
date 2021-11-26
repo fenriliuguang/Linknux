@@ -13,8 +13,10 @@ function setObj(res,i){
     count3:300,
     link:"",
     t:"",
-    c:""
+    c:"",
+    a_id:""
   };
+  object.a_id = res.data.data[i].author_id;
   var d = new Date(res.data.data[i].create_time)
   object.id = res.data.data[i].post_id;
   object.t = res.data.data[i].title;
@@ -211,6 +213,110 @@ App({
         }
       })
       return code;
+    },
+    guanzhu:function(fid){
+      wx.request({
+        url: host+'/follow',
+        header:{
+          Authorization: "Bearer " + getApp().globalData.token 
+        },
+        data:{
+          follow_id:fid
+        },
+        dataType:"json",
+        method:"POST"
+      })
+    },
+    getGuanzhu:function(){
+      var data = [];
+      wx.request({
+        url: host+'/follow/get/follow',
+        header:{
+          Authorization: "Bearer " + getApp().globalData.token 
+        },
+        method:"GET",
+        success(res){
+          data.push.apply(data,res.data.data);
+        }
+      })
+      return data;
+    },
+    cancelGuanzhu:function(fid){
+      wx.request({
+        url: host+'/follow/cancel',
+        header:{
+          Authorization: "Bearer " + getApp().globalData.token 
+        },
+        data:{
+          follow_id:fid
+        },
+        dataType:"json",
+        method:"PUT"
+      })
+    },
+    collect:function(pid){
+      wx.request({
+        url: host+'/collect',
+        header:{
+          Authorization: "Bearer " + getApp().globalData.token 
+        },
+        data:{
+          post_id:pid
+        },
+        method:"POST",
+        dataType:"json"
+      })
+    },
+    cancelCollect:function(pid){
+      wx.request({
+        url: host+'/collect/delete',
+        header:{
+          Authorization: "Bearer " + getApp().globalData.token 
+        },
+        data:{
+          post_id:pid
+        },
+        method:"PUT",
+        dataType:"json"
+      })
+    },
+    checkStarAndLike:function(pid){
+      let data = {
+        isLike:false,
+        isStar:true
+      }
+      wx.request({
+        url: host+'/getvc',
+        header:{
+          Authorization: "Bearer " + getApp().globalData.token 
+        },
+        data:{
+          post_id:pid
+        },
+        method:"POST",
+        dataType:"json",
+        success(res){
+          console.log(res.data)
+          data.isLike = res.data.data.voted
+          data.isStar = res.data.data.collected
+        }
+      })
+
+      return data;
+    },
+    like:function(pid,point){
+      wx.request({
+        url: host +'/vote',
+        header:{
+          Authorization: "Bearer " + getApp().globalData.token 
+        },
+        data:{
+          post_id:pid,
+          direction:point
+        },
+        method:"POST",
+        dataType:"json"
+      })
     }
   }
 })

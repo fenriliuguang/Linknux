@@ -53,7 +53,7 @@ Page({
                                             var app = getApp()
                                             app.globalData.isLogin = true;
                                             // app.globalData.unionid = r.data.unionid
-                                            // app.globalData.openid = r.data.openid
+                                            app.globalData.openid = r.data.data.user_id
                                             app.globalData.userInfo = this.data.userInfo;
                                             app.globalData.token = r.data.data.token;
 

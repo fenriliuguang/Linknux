@@ -34,8 +34,8 @@
         "text": "帮助"
       },
       {
-        "selectedIconPath": "./static/icons/我的-线性-4.png",
-        "iconPath": "./static/icons/我的-线性-4.png",
+        "selectedIconPath": "./static/icons/user.png",
+        "iconPath": "./static/icons/user.png",
         "pagePath": "pages/user/user",
         "text": "用户"
       }
