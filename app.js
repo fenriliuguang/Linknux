@@ -123,70 +123,72 @@ App({
     },
     getFenqu: function(page,size,order,label_id){
 
-      var arr = [];
-      var app = getApp();
+      return new Promise((resolve,reject) => {
+        var arr = [];
+        var app = getApp();
 
-      wx.request({
-        header:{
-          Authorization: "Bearer " + app.globalData.token 
-        },
-        url: host + '/index',
-        data:{
-          page:page,
-          size:size,
-          order:order,
-          label_id:parseInt(label_id)
-        },
-        dataType:"json",
-        method:"GET",
-        success(res){
-          console.log(res);
-          for(var i = 0;i<res.data.data.length;i++){
-            arr.push(setObj(res,i));
+        wx.request({
+          header:{
+            Authorization: "Bearer " + app.globalData.token 
+          },
+          url: host + '/index',
+          data:{
+            page:page,
+            size:size,
+            order:order,
+            label_id:parseInt(label_id)
+          },
+          dataType:"json",
+          method:"GET",
+          success(res){
+            console.log(res);
+            for(var i = 0;i<res.data.data.length;i++){
+              arr.push(setObj(res,i));
+            }
+            resolve(arr);
           }
-        }
+        })
       })
-
-      return arr;
     },
     getRank: function(){
-      var app = getApp();
-      var data = {
-        me:null,
-        rank:null
-      }
-      wx.request({
-        header:{
-          Authorization: "Bearer " + app.globalData.token 
-        },
-        url: host + '/rank',
-        method:'GET',
-        success(res){
-          data.me = res.data.data.me;
-          data.rank = res.data.data.rank;
+      return new Promise((resolve,reject) => {
+        var app = getApp();
+        var data = {
+          me:null,
+          rank:null
         }
-      });
-
-      console.log(data)
-      return data;
+        wx.request({
+          header:{
+            Authorization: "Bearer " + app.globalData.token 
+          },
+          url: host + '/rank',
+          method:'GET',
+          success(res){
+            data.me = res.data.data.me;
+            data.rank = res.data.data.rank;
+            resolve(data);
+          }
+        });
+      })
     },
     search: function(s){
-      var arr = [];
-      wx.request({
-        url: host + '/search',
-        method: 'GET',
-        data:{
-          search : s
-        },
-        success(res){
-          console.log(res);
-          for(var i = 0;i<res.data.data.length;i++){
-            arr.push(setObj(res,i));
+      return new Promise((resolve,reject) => {
+        var arr = [];
+        wx.request({
+          url: host + '/search',
+          method: 'GET',
+          data:{
+            search : s
+          },
+          success(res){
+            console.log(res);
+            for(var i = 0;i<res.data.data.length;i++){
+              arr.push(setObj(res,i));
+            }
+            resolve(arr);
           }
-        }
-      });
-      
-      return arr;
+        });
+      })
     },
     add: function(p){
       wx.request({
@@ -202,127 +204,157 @@ App({
       })
     },
     post:function (params) {
-      var code = 0;
-      wx.request({
-        url: host+'/post',
-        header:{
-          Authorization: "Bearer " + getApp().globalData.token 
-        },
-        data:{
-          title:params.title,
-          content:params.content,
-          label_id:params.label_id
-        },
-        method:"POST",
-        dataType:"json",
-        success(res){
-          code = res.data.code;
-        }
+      return new Promise((resolve,reject) => {
+        var code = 0;
+        wx.request({
+          url: host+'/post',
+          header:{
+            Authorization: "Bearer " + getApp().globalData.token 
+          },
+          data:{
+            title:params.title,
+            content:params.content,
+            label_id:params.label_id
+          },
+          method:"POST",
+          dataType:"json",
+          success(res){
+            code = res.data.code;
+            resolve(code);
+          }
+        })
       })
-      return code;
     },
     guanzhu:function(fid){
-      wx.request({
-        url: host+'/follow',
-        header:{
-          Authorization: "Bearer " + getApp().globalData.token 
-        },
-        data:{
-          follow_id:fid
-        },
-        dataType:"json",
-        method:"POST"
+      return new Promise((resolve,reject) => {
+        wx.request({
+          url: host+'/follow',
+          header:{
+            Authorization: "Bearer " + getApp().globalData.token 
+          },
+          data:{
+            follow_id:fid
+          },
+          dataType:"json",
+          method:"POST",
+          success(){
+            resolve(1);
+          }
+        })
       })
     },
     getGuanzhu:function(){
-      var data = [];
-      wx.request({
-        url: host+'/follow/get/follow',
-        header:{
-          Authorization: "Bearer " + getApp().globalData.token 
-        },
-        method:"GET",
-        success(res){
-          data.push.apply(data,res.data.data);
-        }
-      })
-      return data;
+      return new Promise((resolve,reject) => {
+        var data = [];
+        wx.request({
+          url: host+'/follow/get/follow',
+          header:{
+            Authorization: "Bearer " + getApp().globalData.token 
+          },
+          method:"GET",
+          success(res){
+            data.push.apply(data,res.data.data);
+            resolve(data)
+          }
+        })
+      });
     },
     cancelGuanzhu:function(fid){
-      wx.request({
-        url: host+'/follow/cancel',
-        header:{
-          Authorization: "Bearer " + getApp().globalData.token 
-        },
-        data:{
-          follow_id:fid
-        },
-        dataType:"json",
-        method:"PUT"
+      return new Promise((resolve,reject) => {
+        wx.request({
+          url: host+'/follow/cancel',
+          header:{
+            Authorization: "Bearer " + getApp().globalData.token 
+          },
+          data:{
+            follow_id:fid
+          },
+          dataType:"json",
+          method:"PUT",
+          success(){
+            resolve(1);
+          }
+        })
       })
     },
     collect:function(pid){
-      wx.request({
-        url: host+'/collect',
-        header:{
-          Authorization: "Bearer " + getApp().globalData.token 
-        },
-        data:{
-          post_id:pid
-        },
-        method:"POST",
-        dataType:"json"
+      return new Promise((resolve,reject) => {
+        wx.request({
+          url: host+'/collect',
+          header:{
+            Authorization: "Bearer " + getApp().globalData.token 
+          },
+          data:{
+            post_id:pid
+          },
+          method:"POST",
+          dataType:"json",
+          success(){
+            resolve(1);
+          }
+        })
       })
     },
     cancelCollect:function(pid){
-      wx.request({
-        url: host+'/collect/delete',
-        header:{
-          Authorization: "Bearer " + getApp().globalData.token 
-        },
-        data:{
-          post_id:pid
-        },
-        method:"PUT",
-        dataType:"json"
+      return new Promise((resolve,reject) => {
+        wx.request({
+          url: host+'/collect/delete',
+          header:{
+            Authorization: "Bearer " + getApp().globalData.token 
+          },
+          data:{
+            post_id:pid
+          },
+          method:"PUT",
+          dataType:"json",
+          success(){
+            resolve(1);
+          }
+        })
       })
     },
     checkStarAndLike:function(pid){
-      let data = {
-        isLike:false,
-        isStar:true
-      }
-      wx.request({
-        url: host+'/getvc',
-        header:{
-          Authorization: "Bearer " + getApp().globalData.token 
-        },
-        data:{
-          post_id:pid
-        },
-        method:"POST",
-        dataType:"json",
-        success(res){
-          console.log(res.data)
-          data.isLike = res.data.data.voted
-          data.isStar = res.data.data.collected
+      return new Promise((resolve,reject) => {
+        let data = {
+          isLike:false,
+          isStar:true
         }
-      })
-
-      return data;
+        wx.request({
+          url: host+'/getvc',
+          header:{
+            Authorization: "Bearer " + getApp().globalData.token 
+          },
+          data:{
+            post_id:pid
+          },
+          method:"POST",
+          dataType:"json",
+          success(res){
+            console.log(res.data);
+            data.isLike = res.data.data.voted;
+            data.isStar = res.data.data.collected;
+            resolve(data);
+          }
+        })
+      });
     },
     like:function(pid,point){
-      wx.request({
-        url: host +'/vote',
-        header:{
-          Authorization: "Bearer " + getApp().globalData.token 
-        },
-        data:{
-          post_id:pid,
-          direction:point
-        },
-        method:"POST",
-        dataType:"json"
+      return new Promise((resolve,reject) => {
+        wx.request({
+          url: host +'/vote',
+          header:{
+            Authorization: "Bearer " + getApp().globalData.token 
+          },
+          data:{
+            post_id:pid,
+            direction:point
+          },
+          method:"POST",
+          dataType:"json",
+          success(){
+            resolve(1);
+          }
+        })
       })
     }
   }

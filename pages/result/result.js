@@ -9,30 +9,22 @@ Page({
   },
 
   search: function(e){
-    
-
-    var arr = getApp().resquest.search(e.detail.value);
-
-    setTimeout(()=>{
+    getApp().resquest.search(e.detail.value).then((arr)=>{
       this.setData({
         page:arr
       })
-    },200)
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("load")
-    console.log(options.search)
-    var arr = getApp().resquest.search(options.search)
-
-    setTimeout(()=>{
+    getApp().resquest.search(options.search).then((arr)=>{
       this.setData({
         page:arr
       })
-    },200)
+    });
   },
 
   /**

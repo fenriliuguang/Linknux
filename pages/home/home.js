@@ -123,9 +123,7 @@ Page({
                 break;
 
             case "dashen":
-                var data = getApp().resquest.getRank();
-                setTimeout(()=>{
-                    console.log(data)
+                getApp().resquest.getRank().then((data) => {
                     me.contribution = data.me[0].contribution;
                     me.pic_link = data.me[0].pic_link;
                     me.username = data.me[0].username;
@@ -133,39 +131,29 @@ Page({
                     for(var i = 0;i<data.rank.length;i++){
                         if(data.me[0].pic_link === data.rank[i].pic_link){
                             me.rank = i+1;
-                            setTimeout(() => {
-                                this.setData({
-                                    me:me
-                                })
-                            },200)
+                            this.setData({
+                                me:me
+                            })
                         }
                     }
-                    setTimeout(() => {
-                        this.setData({
-                            memberList:arr
-                        })
-                        this.setData({
-                            list:this.data.memberList.slice(3)
-                        })
-                    }, 200);
-                },300)
-                setTimeout(() => {
-                    arr = data.rank;
-                },200);
+                    this.setData({
+                        memberList:data.rank
+                    })
+                    this.setData({
+                        list:this.data.memberList.slice(3)
+                    })
+                });
                 
                 break;
         }
     },
 
     fenquOnTab: function(e){
-        var arr = getApp().resquest.getFenqu(1,10,"score",e.currentTarget.dataset.tab);
-
-        setTimeout(()=>{
+        getApp().resquest.getFenqu(1,10,"score",e.currentTarget.dataset.tab).then((arr) => {
             this.setData({
                 fenqu_page:arr
             });
-        },200)
-
+        });
     },
 
     /**

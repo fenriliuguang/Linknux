@@ -29,17 +29,17 @@ Page({
 
     submit:function(){
         if(this.data.uplode)return
-        var code;
         if(this.data.type == 0){
-            code = getApp().resquest.post({
+            getApp().resquest.post({
                 label_id:parseInt(this.data.index)+1,
                 title:this.data.title,
                 content:this.data.content
+            }).then((code) => {
+                if(code == 1000){
+                    wx.navigateBack();
+                }
             })
         }
-        setTimeout(() => {
-            wx.navigateBack();
-        }, 500);
         
     },
 

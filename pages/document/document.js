@@ -15,7 +15,7 @@ Page({
     isGuanzhu:false,
     isLike:false,
     isStar:false,
-    load:false
+    load:true
   },
 
   /**
@@ -41,17 +41,15 @@ Page({
         post_id:data.id,
         a_id:data.a_id
       }) 
-      getApp().resquest.add(this.data.post_id)
-    },100);
-    this.setGuanzhu();
-    setTimeout(() => {
+      getApp().resquest.add(this.data.post_id);
+      this.setGuanzhu();
       this.setStarAndLike();
-    }, 400);
+    },100);
+    
   },
 
   setGuanzhu:function(){
-    let data2 = getApp().resquest.getGuanzhu();
-    setTimeout(() => {
+    getApp().resquest.getGuanzhu().then((data2) => {
       console.log(data2);
       for(let i=0;i<data2.length;i++){
         if(data2[i].UserID==this.data.a_id){
@@ -60,7 +58,7 @@ Page({
           })
         }
       }
-    }, 500);
+    });
   },
 
   dz:function(){
@@ -71,13 +69,9 @@ Page({
       load:true
     })
     point = this.data.isLike?"-1":"1";
-    getApp().resquest.like(this.data.post_id,point);
-    setTimeout(() => {
+    getApp().resquest.like(this.data.post_id,point).then(()=>{
       this.setStarAndLike();
-      this.setData({
-        load:false
-      })
-    }, 1000);
+    });
   },
   
   sc:function(){
@@ -87,37 +81,39 @@ Page({
       load:true
     })
     if(this.data.isStar){
-      getApp().resquest.cancelCollect(this.data.post_id);
+      getApp().resquest.cancelCollect(this.data.post_id).then(()=>{
+        this.setStarAndLike();
+      });
     }else{
-      getApp().resquest.collect(this.data.post_id);
+      getApp().resquest.collect(this.data.post_id).then(()=>{
+        this.setStarAndLike();
+      });
     }
-    setTimeout(() => {
-      this.setStarAndLike();
-      this.setData({
-        load:false
-      })
-    }, 1000);
   },
 
   setStarAndLike(){
-    let data = getApp().resquest.checkStarAndLike(this.data.post_id);
-    setTimeout(() => {
+    getApp().resquest.checkStarAndLike(this.data.post_id).then((data) => {
       this.setData(data);
-    }, 500);
+      this.setData({
+        load:false
+      });
+    });
   },
 
   gz:function(){
     if(this.data.a_id == getApp().globalData.openid)return;
     if(this.data.isGuanzhu){
-      getApp().resquest.cancelGuanzhu(this.data.a_id);
-      this.setData({
-        isGuanzhu:false
-      })
+      getApp().resquest.cancelGuanzhu(this.data.a_id).then(()=>{
+        this.setData({
+          isGuanzhu:false
+        })
+      });
     }else{
-      getApp().resquest.guanzhu(this.data.a_id);
-      this.setData({
-        isGuanzhu:true
-      })
+      getApp().resquest.guanzhu(this.data.a_id).then(()=>{
+        this.setData({
+          isGuanzhu:true
+        })
+      });
     }
   },
 
