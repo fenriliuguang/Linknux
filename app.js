@@ -60,59 +60,66 @@ App({
   },
   resquest:{
     getFollow: function(page,size,order){
+      return new Promise((resolve,reject)=>{
 
-      var arr = [];
-      var app = getApp();
-
-      wx.request({
-        header:{
-          Authorization: "Bearer " + app.globalData.token 
-        },
-        url: host + '/follow/get/post',
-        data:{
-          page:page,
-          size:size,
-          order:order
-        },
-        dataType:"json",
-        method:"GET",
-        success(res){
-          if(res.data.data == null)return;
-          for(var i = 0;i<res.data.data.length;i++){
-            arr.push(setObj(res,i));
-          }
-        },
+        var arr = [];
+        var app = getApp();
+        wx.request({
+          header:{
+            Authorization: "Bearer " + app.globalData.token 
+          },
+          url: host + '/follow/get/post',
+          data:{
+            page:page,
+            size:size,
+            order:order
+          },
+          dataType:"json",
+          method:"GET",
+          success(res){
+            if(res.data.data == null){
+              resolve(arr);
+              return;
+            }
+            for(var i = 0;i<res.data.data.length;i++){
+              arr.push(setObj(res,i));
+            }
+            resolve(arr);
+          },
+        })
       })
-
-      return arr;
     },
     getIndex: function(page,size,order){
 
-      var arr = [];
-      var app = getApp();
+      return new Promise((resolve,reject) =>{
+        var arr = [];
+        var app = getApp();
 
-      wx.request({
-        header:{
-          Authorization: "Bearer " + app.globalData.token 
-        },
-        url: host + '/index',
-        data:{
-          page:page,
-          size:size,
-          order:order
-        },
-        dataType:"json",
-        method:"GET",
-        success(res){
-          console.log(res);
-          if(res.data.data == null)return;
-          for(var i = 0;i<res.data.data.length;i++){
-            arr.push(setObj(res,i));
+        wx.request({
+          header:{
+            Authorization: "Bearer " + app.globalData.token 
+          },
+          url: host + '/index',
+          data:{
+            page:page,
+            size:size,
+            order:order
+          },
+          dataType:"json",
+          method:"GET",
+          success(res){
+            console.log(res);
+            if(res.data.data == null){
+              resolve(arr);
+              return;
+            }
+            for(var i = 0;i<res.data.data.length;i++){
+              arr.push(setObj(res,i));
+            }
+            resolve(arr);
           }
-        }
+        })
       })
-
-      return arr;
     },
     getFenqu: function(page,size,order,label_id){
 

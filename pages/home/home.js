@@ -42,28 +42,26 @@ Page({
             loading:true
         })
         var arr = this.data[e.currentTarget.dataset.page + 'page'];
-        var arr2 = getApp().resquest[e.currentTarget.dataset.request](
-            this.data[e.currentTarget.dataset.page] + 1,10,"score")
-        
-        setTimeout(() => {
-            console.log(arr2);
-            if(arr2.length == 0){
+        getApp().resquest[e.currentTarget.dataset.request](
+            this.data[e.currentTarget.dataset.page] + 1,10,"score").then((arr2) => {
+                console.log(arr2);
+                if(arr2.length == 0){
+                    this.setData({
+                        loading:false,
+                        loadFlag:false,
+                    })
+                    return;
+                }
+                arr.push.apply(arr,arr2);
+                console.log(arr);
+
                 this.setData({
+                    [e.currentTarget.dataset.page + 'page']:arr,
                     loading:false,
                     loadFlag:false,
+                    [e.currentTarget.dataset.page]:this.data[e.currentTarget.dataset.page] + 1
                 })
-                return;
-            }
-            arr.push.apply(arr,arr2);
-            console.log(arr);
-
-            this.setData({
-                [e.currentTarget.dataset.page + 'page']:arr,
-                loading:false,
-                loadFlag:false,
-                [e.currentTarget.dataset.page]:this.data[e.currentTarget.dataset.page] + 1
             })
-        },200)
         console.log("loading...")
     },
 
@@ -95,7 +93,6 @@ Page({
             tab:tab
         })
 
-        var arr;
         var me = {
             pic_link : '',
             username : '',
@@ -105,22 +102,21 @@ Page({
 
         switch(e.currentTarget.dataset.tab){
             case "guanzhu":
-                arr = getApp().resquest.getFollow(1,10,"score");
-                setTimeout(()=>{
+                getApp().resquest.getFollow(1,10,"score").then((arr) => {
+                    console.log(arr)
                     this.setData({
                         guanzhu_:1,
                         guanzhu_page:arr
                     });
-                },200)
+                })
                 break;
             case "resou":
-                arr = getApp().resquest.getIndex(1,10,"score");
-                setTimeout(()=>{
+                getApp().resquest.getIndex(1,10,"score").then((arr) => {
                     this.setData({
                         resou_:1,
                         resou_page:arr
                     });
-                },200)
+                });
                 break;
             case "fenqu":
                 
@@ -183,12 +179,11 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        var arr = getApp().resquest.getFollow(1,10,"score");
-        setTimeout(()=>{
+        getApp().resquest.getFollow(1,10,"score").then((arr) => {
             this.setData({
                 guanzhu_page:arr
             });
-        },200)
+        });
     },
 
     /**
