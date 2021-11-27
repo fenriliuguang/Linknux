@@ -1,10 +1,10 @@
 {
   "entryPagePath": "pages/login/login",
   "pages": [
+    "pages/login/login",
     "pages/home/home",
     "pages/help/help",
     "pages/user/user",
-    "pages/login/login",
     "pages/document/document",
     "pages/result/result"
   ],

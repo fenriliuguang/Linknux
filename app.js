@@ -1,5 +1,5 @@
 // app.js
-const host = "http://192.168.1.5:8080";
+const host = "http://192.168.43.221:8080";
 function setObj(res,i){
   var object = {
     id:0,
@@ -81,7 +81,7 @@ App({
           for(var i = 0;i<res.data.data.length;i++){
             arr.push(setObj(res,i));
           }
-        }
+        },
       })
 
       return arr;
