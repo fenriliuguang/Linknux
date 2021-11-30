@@ -1,25 +1,22 @@
 <!--pages/help/help.wxml-->
 <view class="helpContainer">
-    <!-- 头部搜索区域 -->
-    <view class="searchArea">
-        <view class="searchBorder">
-            <image class="searchIcon" src="../../static/icons/search.png"></image>
-            <input class="weui-input"  placeholder="搜索"/>
-        </view>
-        <view class="addMore">
-            <image class="addImg" src="../../static/icons/plus.png"></image>
-        </view>
+    <view class="title">
+        翻译请求
+    </view>
+    <view class="more">
+        <view bindtap="push" class="btn">＋发布翻译请求</view>
     </view>
     <!-- 求助区域 -->
     <view class="helpArea">
-        <scroll-view class="helpScroll">
-            <view class="helpItem" wx:for="{{helpList}}">
-                <image class="icon" src="../../static/icons/star2.png"></image>
+        <scroll-view class="helpScroll"
+            scroll-y="true">
+            <view wx:key="*this" class="helpItem" wx:for="{{helpList}}" 
+                wx:for-item="item">
                 <view class="content">
-                    <view class="detailContent">文章标题.md</view>
+                    <view class="detailContent">{{item.title}}</view>
                     <view class="translateType">英 -> 中</view>
                 </view>
-                <view class="check">查看</view>
+                <view bindtap="check" data-doc="{{item}}" class="check">查看</view>
             </view>
         </scroll-view>
     </view>

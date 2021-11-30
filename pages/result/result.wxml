@@ -10,7 +10,7 @@
   </view>
   <view style="height: calc(100% - 100rpx);">
     <scroll-view style="height: 100%;"  scroll-y="true">
-                <view  wx:key="*this" class="_page" wx:for="{{ page}}" wx:for-item="item">
+                <view  bindtap="toDoc" data-doc="{{item}}" wx:key="*this" class="_page" wx:for="{{ page}}" wx:for-item="item">
                     <view class="_box-title" >{{item.title}}</view>
                     <view class="_box-word" >{{item.word}}</view>
                     <view class="buttun" >

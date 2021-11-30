@@ -11,12 +11,25 @@ Page({
         page_title:'',
         type:0,
         label:[
-            "Ubuntu",
-            "Mint",
-            "Kali",
-            "MX Linux"
+            {
+                name:"Ubuntu",
+                url:"../../static/image/Ubuntu.png"
+            },
+            {
+                name:"Mint",
+                url:"../../static/image/Mint.png"
+            },
+            {
+                name:"Kali",
+                url:"../../static/image/Kali.png"
+            },
+            {
+                name:"MX Linux",
+                url:"../../static/image/MX_Linux.png"
+            }
         ],
-        index:0
+        index:0,
+        needToTrans_id:''
     },
 
     a:function(){},
@@ -28,19 +41,62 @@ Page({
     },
 
     submit:function(){
-        if(this.data.uplode)return
+        if(this.data.uplode)return;
+        this.setData({
+            uplode:true
+        })
+        this.submitDoc();
+        this.submitTrans();
+        this.submitTransNeed();
+    },
+    submitDoc:function(){
         if(this.data.type == 0){
             getApp().resquest.post({
                 label_id:parseInt(this.data.index)+1,
                 title:this.data.title,
-                content:this.data.content
+                content:this.data.content,
+                trans_id:'0'
             }).then((code) => {
+                this.setData({
+                    uplode:false
+                })
                 if(code == 1000){
                     wx.navigateBack();
                 }
             })
         }
-        
+    },
+    submitTrans:function(){
+        if(this.data.type == 1){
+            getApp().resquest.post({
+                label_id:parseInt(this.data.index)+1,
+                title:this.data.title,
+                content:this.data.content,
+                trans_id:this.data.needToTrans_id
+            }).then((code) => {
+                this.setData({
+                    uplode:false
+                })
+                if(code == 1000){
+                    wx.navigateBack();
+                }
+            })
+        }
+    },
+    submitTransNeed:function(){
+        if(this.data.type == 2){
+            getApp().resquest.pushTransNeed({
+                title:this.data.title,
+                content:this.data.content
+            }).then((code) => {
+                this.setData({
+                    uplode:false
+                })
+                if(code == 1000){
+                    wx.navigateBack();
+                }
+            })
+        }
     },
 
     /**
@@ -56,8 +112,10 @@ Page({
         if(options.type == 1){
             this.setData({
                 page_title:"写中文翻译",
-                type:1
+                type:1,
+                needToTrans_id:options.id
             })
+            console.log(this.data)
         }
         if(options.type == 2){
             this.setData({

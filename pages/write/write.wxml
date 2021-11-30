@@ -1,4 +1,4 @@
-<view style="height:100%;">
+<view style="height:100%;padding: 10px 15px;">
     <view class="title">
         <!--
             <image class="back_picture" src="../../static/icons/返回.png"></image>
@@ -6,15 +6,16 @@
         <view class="title_text">{{page_title}}</view>
     </view>
     <view class="input_box1">
-        <view class="input_title_1">标题</view>
+        <view class="input_title_1">标题:</view>
         <textarea bindinput="a" model:value="{{title}}" maxlength="30" class="input_1" focus placeholder="请输入文章标题"/>
     </view>
-    <view>选择分区：</view>
-    <picker bindchange="bindPickerChange" range="{{label}}" value="{{index}}">
-        <view>当前选择: {{label[index]}}</view>
+    <view wx:if="{{type!=2}}" style="margin: 10px 0;">选择分区：</view>
+    <picker wx:if="{{type!=2}}" bindchange="bindPickerChange" range="{{label}}" range-key="name" value="{{index}}">
+        <image src="{{label[index].url}}" style="width: 60px;height: 60px;border-radius: 4px;"></image>
+        <view style="width: 60px;font-size: 12px;text-align: center;">{{label[index].name}}</view>
     </picker>
     <view class="input_box2">
-        <view class="input_title_2">上传markdown格式内容</view>
+        <view class="input_title_2">上传markdown格式内容:</view>
         <textarea bindinput="a" maxlength="-1" model:value="{{content}}" class="input_2" focus placeholder="请输入MD内容"/>
     </view>
     <view bindtap="submit" class="submit_button">发布</view>

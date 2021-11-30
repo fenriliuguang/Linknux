@@ -1,5 +1,5 @@
 // app.js
-const host = "http://192.168.43.221:8080";
+const host = "http://192.168.1.6:8080";
 function setObj(res,i){
   var object = {
     id:0,
@@ -56,7 +56,8 @@ App({
     isLogin:false,
     unionid:null,
     openid:null,
-    token:'token'
+    token:'token',
+    host:host
   },
   resquest:{
     getFollow: function(page,size,order){
@@ -214,7 +215,8 @@ App({
           data:{
             title:params.title,
             content:params.content,
-            label_id:params.label_id
+            label_id:params.label_id,
+            trans_id:params.trans_id
           },
           method:"POST",
           dataType:"json",
@@ -353,6 +355,39 @@ App({
           dataType:"json",
           success(){
             resolve(1);
+          }
+        })
+      })
+    },
+    getTrans:function(){
+      return new Promise((resolve,reject) => {
+        wx.request({
+          url: host + '/trans/get/task',
+          header:{
+            Authorization: "Bearer " + getApp().globalData.token 
+          },
+          method:"GET",
+          success(res){
+            resolve(res.data.data)
+          }
+        })
+      })
+    },
+    pushTransNeed:function(params){
+      return new Promise((resolve,reject) => {
+        wx.request({
+          url: host + '/trans',
+          method:"POST",
+          dataType:"json",
+          header:{
+            Authorization: "Bearer " + getApp().globalData.token 
+          },
+          data:{
+            content:params.content,
+            title:params.title
+          },
+          success(res){
+            resolve(res.data.code);
           }
         })
       })

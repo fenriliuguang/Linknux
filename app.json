@@ -6,7 +6,8 @@
     "pages/help/help",
     "pages/user/user",
     "pages/document/document",
-    "pages/result/result"
+    "pages/result/result",
+    "pages/trans/trans"
   ],
   "window": {
     "backgroundTextStyle": "light",

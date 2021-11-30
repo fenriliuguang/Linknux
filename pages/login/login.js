@@ -42,7 +42,7 @@ Page({
                                 if (res.code) {
                                     wx.request({
                                         // 登录接口
-                                        url: 'http://192.168.43.221:8080/login',
+                                        url: getApp().globalData.host + '/login',
                                         data: {
                                             code: res.code,
                                             username: this.data.userInfo.nickName,

@@ -1,0 +1,14 @@
+<!--pages/trans/trans.wxml-->
+<view style="height: 100%;">
+  <scroll-view scroll-y="true" style="height: calc(100% - 60px);">
+    <towxml nodes="{{a}}" />
+  </scroll-view>
+  <view class="button_view">
+    <view bindtap="write" class="btn">
+      我要翻译
+    </view>
+    <view bindtap="check" class="btn">
+      查看已有翻译
+    </view>
+  </view>
+</view>

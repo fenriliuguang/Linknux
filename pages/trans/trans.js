@@ -1,42 +1,43 @@
-// pages/result/result.js
+// pages/trans/trans.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    page:[]
+    a:{},
+    id:''
   },
 
-  search: function(e){
-    getApp().resquest.search(e.detail.value).then((arr)=>{
-      this.setData({
-        page:arr
-      })
-    });
-  },
-
-  toDoc :function(e){
-    let data = JSON.stringify(e.currentTarget.dataset.doc)
-    console.log(e.currentTarget.dataset.doc)
-    wx.setStorage({
-        key:'doc',
-        data:data
-    })
+  write: function(){
     wx.navigateTo({
-      url: '../document/document',
+      url: '../write/write?type=1&id=' + this.data.id,
     })
-},
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    getApp().resquest.search(options.search).then((arr)=>{
+    var res = new Promise((resolve,reject) => {
+      wx.getStorage({
+        key:'doc',
+        success(res){
+          var data = JSON.parse(res.data);
+          resolve(data);
+        }
+      });
+    })
+
+    res.then((data)=>{
+      console.log(data)
+      let result = getApp().towxml(data.content, 'markdown');
+      console.log(result)
       this.setData({
-        page:arr
+        a:result,
+        id:data.trans_id
       })
-    });
+    })
   },
 
   /**
@@ -50,7 +51,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log("show")
+
   },
 
   /**

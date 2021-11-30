@@ -7,12 +7,32 @@ Page({
     data: {
         'helpList': [], // 求助数据列表 
     },
+    push: function(){
+        wx.navigateTo({
+          url: '../write/write?type=2',
+        })
+    },
+
+    check:function(e){
+        let data = JSON.stringify(e.currentTarget.dataset.doc)
+        wx.setStorage({
+            key:'doc',
+            data:data
+        })
+        wx.navigateTo({
+          url: '../trans/trans',
+        })
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        getApp().resquest.getTrans().then((data) => {
+            this.setData({
+                helpList:data
+            })
+        })
     },
 
     /**
