@@ -55,7 +55,7 @@ Page({
     getApp().resquest.getGuanzhu().then((data2) => {
       console.log(data2);
       for(let i=0;i<data2.length;i++){
-        if(data2[i].UserID==this.data.a_id){
+        if(data2[i].user_id==this.data.a_id){
           this.setData({
             isGuanzhu:true
           })
