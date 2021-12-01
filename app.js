@@ -1,5 +1,5 @@
 // app.js
-const host = "http://192.168.1.6:8080";
+const host = "http://192.168.1.4:8080";
 function setObj(res,i){
   var object = {
     id:0,
@@ -388,6 +388,21 @@ App({
           },
           success(res){
             resolve(res.data.code);
+          }
+        })
+      })
+    },
+    getTransExist: function(params){
+      return new Promise((resolve,reject) => {
+        wx.request({
+          url: host + '/trans/get/exist',
+          header:{
+            Authorization: "Bearer " + getApp().globalData.token 
+          },
+          dataType:"json",
+          data:params,
+          success(res){
+            resolve(res.data);
           }
         })
       })

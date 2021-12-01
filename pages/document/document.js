@@ -15,7 +15,9 @@ Page({
     isGuanzhu:false,
     isLike:false,
     isStar:false,
-    load:true
+    load:true,
+    author_qualified:false,
+    
   },
 
   /**
@@ -33,6 +35,7 @@ Page({
       console.log(data);
       let result = getApp().towxml(data.c, 'markdown');
       this.setData({
+        author_qualified:data.author_qualified,
         a:result,
         writer:data.writer,
         avatarUrl:data.avatarUrl,

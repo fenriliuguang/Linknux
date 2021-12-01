@@ -11,4 +11,27 @@
       查看已有翻译
     </view>
   </view>
+  <page-container show="{{ischeck}}"
+  custom-style="height:40%;border-radius:5px 5px 0 0;">
+    <view class="title">已有译文</view>
+    <scroll-view 
+    scroll-y="true"
+    style="height: calc(100% - 43px);"
+    enhanced="true"
+    bindscrolltolower="nextPage">
+      <view wx:if="{{transed.length == 0}}">尚未有人提交翻译</view>
+      <view data-doc="{{item}}" bindtap="toDoc" class="box" wx:key="trans_id" wx:for="{{transed}}" wx:for-item="item">
+        <view class="box_title">{{item.title}}</view>
+        <view class="detail">
+          <image class="detail_img" src="../../static/icons/eye.png"></image>
+          <view>{{item.viewd_num}}</view>
+          <image class="detail_img" src="../../static/icons/like.png"></image>
+          <view>{{item.vote_num}}</view>
+          <image class="detail_img" src="../../static/icons/star.png"></image>
+          <view>{{item.collect_num}}</view>
+        </view>
+      </view>
+      <view wx:if="{{loading}}">加载中...</view>
+    </scroll-view>
+  </page-container>
 </view>

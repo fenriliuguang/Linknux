@@ -6,7 +6,89 @@ Page({
    */
   data: {
     a:{},
-    id:''
+    id:'',
+    ischeck:false,
+    transed:[],
+    page:1,
+    loading:false
+  },
+
+  toDoc: function(e){
+    let item = e.currentTarget.dataset.doc;
+    let date = new Date(item.create_time);
+    var a = date.getMonth()+1
+    let data = JSON.stringify({
+      writer:item.author_name,
+      avatarUrl:item.pic_link,
+      data:date.getFullYear() + '年' + a + date.getDate()+'日',
+      title:item.title,
+      id:item.post_id,
+      a_id:item.author_id,
+      author_qualified:item.author_qualified,
+      c:item.content,
+      qualified:item.qualified
+    })
+    wx.setStorage({
+      key:'doc',
+      data:data,
+      success(){
+        wx.navigateTo({
+          url: '../document/document',
+        })
+      }
+    })
+    
+  },
+
+  check: function(){
+    this.setData({
+      ischeck:true
+    })
+    getApp().resquest.getTransExist({
+      order:'time',
+      page:this.data.page,
+      size:4,
+      trans_id:this.data.id
+    }).then((data) => {
+      console.log(data)
+      if(data.data == null){
+        this.setData({
+          loading:false
+        })
+        return
+      }
+      this.setData({
+        transed:data.data,
+        page:this.data.page + +1
+      })
+    })
+  },
+
+  nextPage: function(){
+    if(this.data.loading)return;
+    this.setData({
+      loading:true
+    });
+    getApp().resquest.getTransExist({
+      order:'time',
+      page:this.data.page,
+      size:4,
+      trans_id:this.data.id
+    }).then((data) => {
+      if(data.data == null){
+        this.setData({
+          loading:false
+        })
+        return
+      }
+      let arr = this.data.transed;
+      arr.push.apply(arr,data.data)
+      this.setData({
+        transed:arr,
+        page:this.data.page+1,
+        loading:false
+      })
+    })
   },
 
   write: function(){
@@ -30,9 +112,7 @@ Page({
     })
 
     res.then((data)=>{
-      console.log(data)
       let result = getApp().towxml(data.content, 'markdown');
-      console.log(result)
       this.setData({
         a:result,
         id:data.trans_id
