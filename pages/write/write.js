@@ -29,10 +29,25 @@ Page({
             }
         ],
         index:0,
-        needToTrans_id:''
+        needToTrans_id:'',
+        consent:false,
+        errAlert:false,
+        seeRule:false
+    },
+
+    consent: function(e){
+        this.setData({
+            consent:e.detail.value
+        })
     },
 
     a:function(){},
+
+    see: function(){
+        this.setData({
+            seeRule:true
+        })
+    },
 
     bindPickerChange:function (e) {
         this.setData({
@@ -41,7 +56,7 @@ Page({
     },
 
     submit:function(){
-        if(this.data.uplode)return;
+        if(this.data.uplode || !this.data.content)return;
         this.setData({
             uplode:true
         })

@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        avatarUrl: "../../static/image/wechat.png",
+        userInfo:{}
     },
     favorites: function () {
         wx.navigateTo({
@@ -17,12 +17,7 @@ Page({
           url: './contribution/contribution'
         })
     },
-    history: function () {
-        wx.navigateTo({
-          url: './history/history'
-        })
-    },
-   fans: function () {
+    fans: function () {
         wx.navigateTo({
           url: './fans/fans'
         })
@@ -31,7 +26,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      let userInfo = getApp().globalData.userInfo;
+      this.setData({
+        userInfo:userInfo
+      })
     },
 
     /**

@@ -16,6 +16,8 @@ function setObj(res,i){
     c:"",
     a_id:""
   };
+  object.author_qualified = res.data.data[i].author_qualified;
+  object.qualified = res.data.data[i].qualified;
   object.a_id = res.data.data[i].author_id;
   var d = new Date(res.data.data[i].create_time)
   object.id = res.data.data[i].post_id;
@@ -261,6 +263,22 @@ App({
         })
       });
     },
+    getFollowed:function(){
+      return new Promise((resolve,reject) => {
+        var data = [];
+        wx.request({
+          url: host+'/follow/get/followed',
+          header:{
+            Authorization: "Bearer " + getApp().globalData.token 
+          },
+          method:"GET",
+          success(res){
+            data.push.apply(data,res.data.data);
+            resolve(data)
+          }
+        })
+      });
+    },
     cancelGuanzhu:function(fid){
       return new Promise((resolve,reject) => {
         wx.request({
@@ -403,6 +421,57 @@ App({
           data:params,
           success(res){
             resolve(res.data);
+          }
+        })
+      })
+    },
+    getStar: function(page,size,order){
+      return new Promise((resolve,reject)=>{
+        var arr = [];
+        var app = getApp();
+        wx.request({
+          header:{
+            Authorization: "Bearer " + app.globalData.token 
+          },
+          url: host + '/collect/get',
+          data:{
+            page:page,
+            size:size,
+            order:order
+          },
+          dataType:"json",
+          method:"GET",
+          success(res){
+            if(res.data.data == null){
+              resolve(arr);
+              return;
+            }
+            for(var i = 0;i<res.data.data.length;i++){
+              arr.push(setObj(res,i));
+            }
+            resolve(arr);
+          },
+        })
+      })
+    },
+    getContribution: function(){
+      return new Promise((resolve,reject) => {
+        var arr = [];
+        wx.request({
+          url: host + '/contribution',
+          header:{
+            Authorization: "Bearer " + getApp().globalData.token 
+          },
+          dataType:"json",
+          success(res){
+            if(res.data.data == null){
+              resolve(arr);
+              return;
+            }
+            for(var i = 0;i<res.data.data.length;i++){
+              arr.push(setObj(res,i));
+            }
+            resolve(arr);
           }
         })
       })

@@ -7,12 +7,14 @@
     "pages/user/user",
     "pages/document/document",
     "pages/result/result",
-    "pages/trans/trans"
+    "pages/trans/trans",
+    "pages/user/contribution/contribution",
+    "pages/user/fans/fans"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "Linkus",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

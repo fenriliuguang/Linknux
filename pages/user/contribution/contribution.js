@@ -1,18 +1,43 @@
-// pages/user/contribution/contribution.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        page:[],
+        loading:false,
+        index:1
     },
 
+    toDoc: function(e){
+        let data = JSON.stringify(e.currentTarget.dataset.doc)
+        console.log(e.currentTarget.dataset.doc)
+        wx.setStorage({
+            key:'doc',
+            data:data
+        })
+        wx.navigateTo({
+          url: '../../document/document',
+        })
+    },
+
+    nextPage: function(){
+        if(this.data.loading)return;
+        this.setData({
+            loading:true
+        });
+        getApp().resquest.getContribution().then((arr) => {
+            this.setData({
+                page:arr,
+                loading:false
+            })
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        
     },
 
     /**
@@ -26,7 +51,11 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        getApp().resquest.getContribution().then((arr) => {
+            this.setData({
+                page:arr,
+            })
+        })
     },
 
     /**

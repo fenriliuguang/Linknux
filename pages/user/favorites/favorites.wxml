@@ -1,4 +1,34 @@
 <!--pages/user/favorites/favorites.wxml-->
-<view>
-
+<view style="height: 100%;">
+  <view class="title">收藏夹</view>
+  <view class="nothing" wx:if="{{page.length == 0}}">
+    <text>空空如也\n快去收藏一些吧</text>
+  </view>
+  <scroll-view 
+    style="height: calc(100% - 53px);" 
+    scroll-y="true"
+    enhanced="true"
+    bindscrolltolower="nextPage">
+    <view wx:key="*this" class="_page item_box_all" wx:for="{{page}}" wx:for-item="item" bindtap="toDoc" data-doc="{{item}}">
+      <image wx:if="{{item.qualified}}" class="nice_item" src="../../../static/image/flag.png"></image>
+      <view class="_box-title" >{{item.title}}</view>
+      <view class="_box-word" >{{item.word}}</view>
+      <view class="buttun" >
+        <view class="{{item.author_qualified?'v_user_icon':''}}">
+          <image class="writer_picture" src="{{ item.avatarUrl }}"></image>
+        </view>
+        <view class="_box-writer" >{{item.writer}}</view>
+        <view class="_box-data" >{{item.data}}</view>
+        <image  class="eye_image" src="../../../static/icons/eye.png"></image>
+        <view class="_box-count" >{{item.count1}}</view>
+        <image  class="eye_image" src="../../../static/icons/like.png"></image>
+        <view class="_box-count" >{{item.count2}}</view>
+        <image  class="eye_image" src="../../../static/icons/star.png"></image>
+        <view class="_box-count" >{{item.count3}}</view>
+      </view>
+    </view>
+    <view wx:if="{{loading}}">
+      加载中 。。。
+    </view>
+  </scroll-view>
 </view>

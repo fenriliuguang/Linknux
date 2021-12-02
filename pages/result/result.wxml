@@ -10,12 +10,15 @@
   </view>
   <view style="height: calc(100% - 100rpx);">
     <scroll-view style="height: 100%;"  scroll-y="true">
-                <view  bindtap="toDoc" data-doc="{{item}}" wx:key="*this" class="_page" wx:for="{{ page}}" wx:for-item="item">
+                <view  bindtap="toDoc" data-doc="{{item}}" wx:key="*this" class="_page item_box_all" wx:for="{{ page}}" wx:for-item="item">
+                    <image wx:if="{{item.qualified}}" class="nice_item" src="../../static/image/flag.png"></image>
                     <view class="_box-title" >{{item.title}}</view>
                     <view class="_box-word" >{{item.word}}</view>
                     <view class="buttun" >
                         <!--用户头像图片-->
-                        <image  class="writer_picture" src="{{ item.avatarUrl }}"></image>
+                        <view class="{{item.author_qualified?'v_user_icon':''}}">
+                            <image class="writer_picture" src="{{ item.avatarUrl }}"></image>
+                        </view>
                             <!--用户头像图片-->
                         <view class="_box-writer" >{{item.writer}}</view>
                         <view class="_box-data" >{{item.data}}</view>

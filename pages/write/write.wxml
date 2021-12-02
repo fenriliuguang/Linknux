@@ -18,5 +18,11 @@
         <view class="input_title_2">上传markdown格式内容:</view>
         <textarea bindinput="a" maxlength="-1" model:value="{{content}}" class="input_2" focus placeholder="请输入MD内容"/>
     </view>
+    <switch bindchange="consent" style="margin: 20px 0;" type="checkbox"><view style="display: inline;">我已经同意<text bindtap="see" class="gongyue">平台上传文档公约</text></view></switch>
     <view bindtap="submit" class="submit_button">发布</view>
+    <page-container custom-style="height:40%;border-radius:5px 5px 0 0;" show="{{seeRule}}">
+        <view>
+            禁止发布涉政、涉黄、涉毒、散播谣言、代考、限时测验、学术论文等违反国家法律法规的内容。
+        </view>
+    </page-container>
 </view>

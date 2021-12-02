@@ -1,2 +1,25 @@
 <!--pages/user/fans/fans.wxml-->
-<text>pages/user/fans/fans.wxml</text>
+<view style="height: 100%;">
+  <view class="tab">
+    <view data-tab="follow" class="tab_item {{follow?'ontab':''}}" bindtap="ontab">我的关注</view>
+    <view data-tab="fans" class="tab_item {{fans?'ontab':''}}" bindtap="ontab">我的粉丝</view>
+  </view>
+  <scroll-view scroll-y="true" style="height: calc(100% - 50px);background-color: whitesmoke;">
+      <view class="box"
+      wx:for="{{arr}}"
+      wx:key="user_id"
+      wx:for-index="index"
+      wx:for-item="item">
+        <view>
+          <view class="{{item.qualified?'v_m_user_icon':''}}">
+            <image src="{{item.pic_link}}" class="img"></image>
+          </view>
+          <view class="name">{{item.username}}</view>
+        </view>
+        <view style="{{fans?'visibility: hidden;':''}}"
+        data-index="{{index}}"
+        class="switch {{item.isfollow?'f_true':'f_false'}}"
+        bindtap="switch">{{item.isfollow?'√已关注':'+关注'}}</view>
+      </view>
+  </scroll-view>
+</view>

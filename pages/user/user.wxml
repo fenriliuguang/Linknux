@@ -2,14 +2,14 @@
 <view>
     <view class="title">用户中心</view>
     <view class="userInfo">
-        <image class="avatar" src="../../static/image/wechat.png"></image>
+        <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
         <view class="detail">
-            <view class="username">用户名</view>
+            <view class="username">{{userInfo.nickName}}</view>
         </view>
     </view>
-    <view class="item">收藏夹</view>
-    <view class="item">我的贡献</view>
-    <view class="item">关注/粉丝</view>
+    <view bindtap="favorites" class="item">收藏夹</view>
+    <view bindtap="contribution" class="item">我的贡献</view>
+    <view bindtap="fans" class="item">关注/粉丝</view>
 </view>
 
 

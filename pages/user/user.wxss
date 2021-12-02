@@ -1,1 +1,37 @@
 /* pages/user/user.wxss */
+.title{
+  text-align: center;
+  font-size: 40px;
+  padding: 10px 0;
+  background-color: white;
+}
+.userInfo{
+  display: flex;
+  padding: 20px 10px;
+  margin: 5px 5px 0 5px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 1px 1px 2px rgb(143, 255, 143);
+}
+.avatar{
+  width: 50px;
+  height: 50px;
+}
+
+.detail{
+  margin-left: 10px;
+}
+
+page{
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+}
+
+.item{
+  margin: 5px 5px 0 5px;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 15px 10px;
+  box-shadow: 1px 1px 2px rgb(143, 255, 143);
+}

@@ -1,1 +1,30 @@
 /**app.wxss**/
+.v_user_icon{
+  position: relative;
+}
+.item_box_all{
+  position: relative;
+}
+.nice_item{
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  right: 8%;
+  top: 2px;
+}
+.v_user_icon::after{
+  content: 'v';
+  z-index: 10;
+  text-align: center;
+  line-height: 8px;
+  bottom: -1px;
+  right: 1px;
+  border: 1.5px solid white;
+  position: absolute;
+  background-color: blueviolet;
+  border-radius: 50%;
+  font-size: 7px;
+  color: white;
+  width: 9px;
+  height: 9px;
+}
