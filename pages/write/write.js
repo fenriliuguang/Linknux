@@ -56,7 +56,7 @@ Page({
     },
 
     submit:function(){
-        if(this.data.uplode || !this.data.content)return;
+        if(this.data.uplode || !this.data.consent)return;
         this.setData({
             uplode:true
         })
